@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/person.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <title>编辑个人信息</title>
+</head>
+
+<body>
+    <div class="wx_container">
+        <div class="person_info">
+            <div class="section">
+                <span>手机号码</span>
+                <input value="<%=data.phone %>" data-target="phone" type="text">
+            </div>
+            <div class="section">
+                <span>您的姓名</span>
+                <input value="<%=data.name %>" data-target="name" type="text">
+            </div>
+            <div class="section">
+                <span>身份证号码</span>
+                <input value="<%=data.idCard %>" data-target="idcard" type="text">
+            </div>
+            <div class="section">
+                <span>初始体重</span>
+                <input value="<%=data.initialWeight %>" data-target="weight" type="text">
+            </div>
+            <div class="section">
+                <span>您的腰围</span>
+                <input value="<%=data.waist %>" data-target="waist" type="text">
+            </div>
+            <div class="section">
+                <span>您的臀围</span>
+                <input value="<%=data.arm %>" data-target="hipline" type="text">
+            </div>
+        </div>
+        <!-- <div class="photo">
+            <span class="title">上传您的三张照片</span>
+            <img class="add" src="/images/addphoto.png" alt="">
+        </div> -->
+        <div class="button">
+            <span class="colorWhite btn">提交保存</span>
+        </div>
+
+    </div>
+    <script src="/javascripts/jquery-3.0.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".button").click(function() {
+                var inputs = $('input');
+                var phone = inputs[0].value;
+                var name = inputs[1].value;
+                var idCard = inputs[2].value;
+                var weight = inputs[3].value;
+                var waist = inputs[4].value;
+                var arm = inputs[5].value;
+                $.ajax({
+                    url: '/api/updateUser',
+                    type: 'post',
+                    data: {
+                        phone: phone,
+                        name: name,
+                        idCard: idCard,
+                        initialWeight: weight && weight.length > 0 ? parseFloat(weight) : 0,
+                        waist: waist && waist.length > 0 ? parseFloat(waist) : 0,
+                        arm: arm && arm.length > 0 ? parseFloat(arm) : 0,
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.status == 'success') {
+                            location.href = '/account';
+                        }
+                    },
+                    error: function(data) {
+                        if (data.status == 'error') {
+
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

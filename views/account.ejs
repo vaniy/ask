@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="/css/account.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+</head>
+
+<body ontouchstart="">
+    <div class="wx_container">
+        <div class="section">
+            <div class="left">
+                <img class="userImage" alt="" src=<%=data.avator %> />
+                <span class="userName paddingLeft"><%=data.name%></span>
+            </div>
+            <div class="right">
+                <a href="/person" class="fontSize10 colorGreen">编辑个人资料</a>
+                <img class="arrow paddingLeft" src="/images/arrowright.png" alt="" />
+            </div>
+        </div>
+        <div class="bar"></div>
+        <div class="section">
+            <div class="left">
+                <img class="icon" src="/images/iconjifen.png" alt="" />
+                <span class="userName paddingLeft">我的订单</span>
+            </div>
+            <a href="/myOrder" class="right">
+                <img class="rightArrow" src="/images/arrowright.png" alt="" />
+            </a>
+        </div>
+        <div class="bar"></div>
+        <div class="section">
+            <div class="left">
+                <span class="userName">分销</span>
+            </div>
+            <div class="right">
+                <img class="rightArrow" src="/images/arrowright.png" alt="" />
+            </div>
+        </div>
+        <div class="section">
+            <div class="left">
+                <img class="icon" src="/images/iconshop.png" alt="" />
+                <span class="userName paddingLeft">我的分销商</span>
+            </div>
+            <a href="/myDistributor" class="right">
+                <img class="rightArrow" src="/images/arrowright.png" alt="" />
+            </a>
+        </div>
+        <div class="section">
+            <div class="left">
+                <img class="icon" src="/images/iconsmile.png" alt="" />
+                <span class="userName paddingLeft">推广分享</span>
+            </div>
+            <a href="/qrcode" class="right">
+                <img class="icon" src="/images/qr.png" alt="" />
+                <img class="rightArrow paddingLeft" src="/images/arrowright.png" alt="" />
+            </a>
+        </div>
+        <div class="section">
+            <div class="left">
+                <img class="icon" src="/images/iconbenefit.png" alt="" />
+                <span class="userName paddingLeft">我的收益</span>
+            </div>
+            <a href="/myProfit" class="right">
+                <span class="fontSize18 colorOrange"><%='¥ '+data.myBenfits && data.myBenfits > 0? data.myBenfits : '0'%></span>
+                <img class="rightArrow paddingLeft" src="/images/arrowright.png" alt="" />
+            </a>
+        </div>
+        <div class="bar"></div>
+        <div class="section">
+            <div class="left">
+                <img class="icon" src="/images/iconsmile.png" alt="" />
+                <span class="userName paddingLeft">关于我们</span>
+            </div>
+            <div class="right">
+                <img class="rightArrow paddingLeft" src="/images/arrowright.png" alt="" />
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/javascripts/jquery-3.0.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+    })
+</script>
+
+</html>

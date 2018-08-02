@@ -1,0 +1,31 @@
+{
+    "customer": "123456786",
+    "customerName": "ggg",
+    "customerLevel": "3",
+    "avator": "/images/portrait.png",
+    "person": "123456789",
+    "peronName": "aaa",
+    "benfits": 400,
+    "time": "2018-01-13",
+    "status": 1
+} {
+    "customer": "123456786",
+    "customerName": "ggg",
+    "customerLevel": "2",
+    "avator": "/images/portrait.png",
+    "person": "123456788",
+    "peronName": "eee",
+    "benfits": 600,
+    "time": "2018-01-13",
+    "status": 1
+} {
+    "customer": "123456786",
+    "customerName": "ggg",
+    "customerLevel": "1",
+    "avator": "/images/portrait.png",
+    "person": "123456787",
+    "peronName": "fff",
+    "benfits": 1200,
+    "time": "2018-01-13",
+    "status": 1
+}

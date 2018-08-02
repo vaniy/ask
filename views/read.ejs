@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="keywords" content=" react training">
+    <meta name="description" content=" react training ">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                document
+                    .write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+            } else {
+                document
+                    .write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document
+                .write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+    <style type='text/css'>
+        body {
+            /* background: url('/bg.png') no-repeat center bottom fixed;
+            background-size: 100%; */
+            background-color: #fdfdfd
+        }
+
+        nav {
+            /* width: 100%; */
+            display: flex;
+            flex-direction: row;
+            border-bottom: #ececec solid 1.5vh;
+            padding: 2vh 4vh;
+            justify-content: space-between;
+        }
+
+        nav .flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        nav .left {
+            color: #666666;
+            font-size: 5vw;
+        }
+
+        nav .left img {
+            width: 5vw;
+            height: 5vw;
+        }
+
+        nav .left span {
+            padding-left: 20px;
+        }
+
+        nav .right a {
+            padding-right: 20px;
+            text-decoration: none;
+            color: #8e8e8e;
+            font-size: 4vw;
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        section .readLogo {
+            width: 80vw;
+            margin-top: 4vh
+        }
+
+        section .everyDay {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            margin-top: 4vh;
+        }
+
+        section .everyDay .time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 2.5vw;
+            align-items: center;
+        }
+
+        section .everyDay .time .bolder {
+            font-weight: bold;
+            font-size: 3vw;
+        }
+
+        section .everyDay .course {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-radius: 5px;
+            color: white;
+            padding: 4vh 5vw 5vh 4vw;
+            margin-top: 2.5vh;
+        }
+
+        section .everyDay .currentBgColor {
+            background: #cb2471;
+        }
+
+        section .everyDay .beforeBgColor {
+            background: #005099;
+        }
+
+        section .everyDay .course .info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        section .everyDay .course .info .title {
+            font-size: 5vw;
+        }
+
+        section .everyDay .course .info .name {
+            font-size: 4vw;
+            margin-top: 3vw;
+        }
+
+        section .everyDay .course .arrow {
+            display: flex;
+            align-items: flex-end;
+            text-decoration: none;
+        }
+
+        section .everyDay .course .arrow span {
+            font-size: 8vw;
+            line-height: 1vh;
+            margin-top: 2vh;
+            color: white;
+        }
+
+        section .empty {
+            height: 20vh;
+            width: 100%;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 1.5vh 0;
+            /* justify-content: space-between; */
+            background-color: #e5e5e5;
+            width: 100%;
+        }
+
+        footer .bottom {
+            text-decoration: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer .bottom span {
+            color: #666666;
+            font-size: 4vw;
+        }
+    </style>
+    <!-- The Fonts -->
+    <!--<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet">-->
+    <!-- The Main CSS File -->
+    <!--<link rel="stylesheet" href="/static/CSS/style.css">
+    <link rel="stylesheet" href="/static/CSS/button.css">-->
+</head>
+
+<body style="margin:0; flex:1">
+    <nav>
+        <div class="flex left">
+            <img src="/images/daohang.png" alt="">
+            <span>丹纳赫《创新者的基因》</span>
+        </div>
+        <div class="flex right">
+        </div>
+    </nav>
+    <div id="root">
+        <section>
+            <img class="readLogo" src="/images/readLogo.png" alt="">
+            <% course.forEach(function(child, index){%>
+                <div class="everyDay">
+                    <div class="time">
+                        <span>
+                            <%=child.week %>
+                        </span>
+                        <span class="bolder">Day
+                            <%=child.day %>
+                        </span>
+                    </div>
+                    <div class="course <%=index===0?'currentBgColor':'beforeBgColor' %>">
+                        <div class="info">
+                            <span class="title">
+                                <%=child.title %>
+                            </span>
+                            <span class="name">《创新者的基因》</span>
+                            <span class="name">
+                                <%=child.chapter %>
+                            </span>
+                        </div>
+                        <a href="/chapter?day=<%=child.day %>&readFlag=<%=index === 0?1:2 %>" class="arrow">
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+                <%})%>
+
+                    <!-- <div class="everyDay">
+                <div class="time">
+                    <span>August 14，Wednesday</span>
+                    <span class="bolder">Day 7</span>
+                </div>
+                <div class="course beforeBgColor">
+                    <div class="info">
+                        <span class="title">往期补读</span>
+                        <span class="name">《创新者的基因》</span>
+                        <span class="name">第六章</span>
+                    </div>
+                    <a href="/chapter" class="arrow">
+                        <span>→</span>
+                    </a>
+                </div>
+            </div> -->
+
+
+                    <div class="empty"></div>
+        </section>
+    </div>
+
+    <footer>
+        <a href="/read" class="bottom">
+            <img src="/images/home.png" alt="">
+            <span>今日阅读</span>
+        </a>
+        <a href="/plan" class="bottom">
+            <img src="/images/planNormal.png" alt="">
+            <span>计划</span>
+        </a>
+        <a href="/myAccount" class="bottom">
+            <img src="/images/accountNormal.png" alt="">
+            <span>我的</span>
+        </a>
+    </footer>
+    <!--<footer>
+		<div class="wrapper">
+			<span class="copyright">
+				COPYRIGHT © 2018 Newegg Inc
+			</span>
+		</div>
+	</footer>-->
+</body>
+
+</html>

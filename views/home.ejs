@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="keywords" content=" react training">
+    <meta name="description" content=" react training ">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                document
+                    .write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+            } else {
+                document
+                    .write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document
+                .write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+    <style type='text/css'>
+        body {
+            background: url('/images/homeBg.png') no-repeat center center fixed;
+            background-size: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+            padding-top: 80px;
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        section h1 {
+            color: #165299;
+            font-size: 50px;
+            padding-top: 30px;
+        }
+
+        .form {
+            width: 80%;
+            display: flex;
+            flex-direction: column
+        }
+
+        .form .option {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 40px
+        }
+
+        .form .option span {
+            font-size: 35px;
+            flex: 1
+        }
+
+        .form .option input {
+            flex: 2;
+            background-color: #e5e5e5;
+            border-radius: 10px;
+            border-width: 0;
+        }
+
+        section .btn {
+            font-size: 45px;
+            margin-top: 50px;
+            width: 70%;
+            background-color: #165299;
+            color: white;
+            border-radius: 5px
+        }
+    </style>
+    <!-- The Fonts -->
+    <!--<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet">-->
+    <!-- The Main CSS File -->
+    <!--<link rel="stylesheet" href="/static/CSS/style.css">
+    <link rel="stylesheet" href="/static/CSS/button.css">-->
+</head>
+
+<body style="margin:0; flex:1">
+    <div id="root">
+        <!-- <header>
+            <img src="/logo.png" alt="">
+        </header>
+        <section>
+            <h1>《创造者的基因》</h1>
+            <div class="form">
+                <div class="option">
+                    <span>公司邮箱:</span>
+                    <input type="text" />
+                </div>
+                <div class="option">
+                    <span>姓&emsp;&emsp;名:</span>
+                    <input type="text" />
+                </div>
+                <div class="option">
+                    <span>团&emsp;&emsp;队:</span>
+                    <input type="text" />
+                </div>
+                <div class="option">
+                    <span>手&emsp;&emsp;机:</span>
+                    <input type="text" />
+                </div>
+            </div>
+
+            <button class="btn">注册</button>
+        </section> -->
+    </div>
+
+    <!--<footer>
+		<div class="wrapper">
+			<span class="copyright">
+				COPYRIGHT © 2018 Newegg Inc
+			</span>
+		</div>
+	</footer>-->
+</body>
+
+<script src="/javascripts/jquery-3.0.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: 'get',
+            url: '/getUser',
+            data: {},
+            dataType: 'json',
+            success: function (res) {
+                console.log('res', res)
+                if (res && res.status) {
+                    // alert(res.msg)
+                    if (res.data.score1) {
+                        setTimeout(() => {
+                            location.href = '/read'
+                        }, 3000);
+                    }
+                    else {
+                        setTimeout(() => {
+                            location.href = '/test'
+                        }, 3000);
+                    }
+                }
+            }
+        })
+    })
+</script>
+
+</html>

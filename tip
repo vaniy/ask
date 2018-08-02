@@ -1,0 +1,30 @@
+mongoimport -d starDbs -c user --type json --drop < /Users/newegg/Documents/chat/chat/user.json 
+sudo mongod --dbpath /data/db/
+
+node-v6.11.2.tar.gz
+
+bd521788c3b6729ed68b2b0016fdf510
+
+378506
+836998
+
+mongoimport -d starDbs -c star --type json --drop < /Users/newegg/Documents/chat/chat/star.json 
+
+mongoimport -d starDbs -c appointment --type json --drop < /Users/newegg/Documents/chat/chat/appointment.json 
+
+mongoimport -d starDbs -c question --type json --drop < /Users/newegg/Documents/chat/chat/question.json 
+mongoimport -d fugeDbs -c admin --type json --drop < /Users/newegg/Documents/chat/chat/admin.json 
+mongoimport -d starDbs -c information --type json --drop < /Users/newegg/Documents/chat/chat/information.json 
+mongoimport -d kemppi -c productlist --type json --drop <
+
+mongoimport -d kemppi -c admin --type json --drop <
+
+6b613e48938234d53b957636452c9029
+
+weichat_niche
+
+yYy8ZschSK9eRCtKBG8DHdvghp8NdJT85ZMlCrTnEHU
+
+mongoimport -d taduoke -c clock --type json --drop < /Users/newegg/Documents/person/
+
+45tfgy768uhgfty654rdse4567jhkl76

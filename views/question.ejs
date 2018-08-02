@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="keywords" content=" react training">
+    <meta name="description" content=" react training ">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                document
+                    .write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+            } else {
+                document
+                    .write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document
+                .write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+    <style type='text/css'>
+        body {
+            /* background: url('/bg.png') no-repeat center bottom fixed;
+            background-size: 100%; */
+            background-color: #fdfdfd
+        }
+
+        nav {
+            /* width: 100%; */
+            display: flex;
+            flex-direction: row;
+            border-bottom: #ececec solid 1.5vh;
+            padding: 2vh 4vh;
+            justify-content: space-between;
+        }
+
+        nav .flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        nav .left {
+            color: #666666;
+            font-size: 5vw;
+        }
+
+        nav .left img {
+            width: 5vw;
+            height: 5vw;
+        }
+
+        nav .left span {
+            padding-left: 20px;
+        }
+
+        nav .right a {
+            padding-right: 20px;
+            text-decoration: none;
+            color: #8e8e8e;
+            font-size: 4vw;
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        section .question {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        section .questionImg img {
+            width: 85vw;
+            display: none;
+        }
+
+        section .questionImg img.active {
+            display: block
+        }
+
+        section h1 {
+            color: #165299;
+            font-size: 5vw;
+            padding-top: 4vh;
+        }
+
+        section .chooseContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 88%;
+        }
+
+        section .chooseContainer .cloumn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        section .cloumn span {
+            position: absolute;
+            font-size: 4vw;
+            color: green
+        }
+
+        section .chooseContainer .cloumn .cloumn1 {
+            width: 12vw;
+            height: 20vh;
+            margin-bottom: 4vh
+        }
+
+        .section .chooseContainer .cloumn cloumn2 {
+            width: 15vw;
+        }
+
+        /* section .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 10px
+        }
+
+        section .content span {
+            font-size: 6vw;
+            color: #5ac0cd
+        }
+
+        section .btn {
+            font-size: 6vw;
+            margin-top: 7vw;
+            width: 70%;
+            background-color: #165299;
+            color: white;
+            border-radius: 5px
+        } */
+    </style>
+    <!-- The Fonts -->
+    <!--<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet">-->
+    <!-- The Main CSS File -->
+    <!--<link rel="stylesheet" href="/static/CSS/style.css">
+    <link rel="stylesheet" href="/static/CSS/button.css">-->
+</head>
+
+<body style="margin:0; flex:1">
+    <nav>
+        <div class="flex left">
+            <img src="/images/daohang.png" alt="">
+            <span>问卷</span>
+        </div>
+        <div class="flex right">
+            <a href="/myAccount">返回</a>
+            <img src="/images/rightArrow.png" alt="">
+        </div>
+    </nav>
+    <div id="root">
+        <section>
+            <h1>发现技能和团队创新者基因小测验</h1>
+            <div class="question">
+                <div class="leftArrow">
+                    <img src="/images/left.png" alt="">
+                </div>
+                <div class="questionImg">
+                    <img id="0" class="active" src="/images/question1.png" alt="">
+                    <img id="1" class="" src="/images/question2.png" alt="">
+                    <img id="2" class="" src="/images/question3.png" alt="">
+                    <img id="3" class="" src="/images/question4.png" alt="">
+                    <img id="4" class="" src="/images/question5.png" alt="">
+                    <img id="5" class="" src="/images/question6.png" alt="">
+                    <img id="6" class="" src="/images/question7.png" alt="">
+                    <img id="7" class="" src="/images/question8.png" alt="">
+                    <img id="8" class="" src="/images/question9.png" alt="">
+                    <img id="9" class="" src="/images/question10.png" alt="">
+                    <img id="10" class="" src="/images/question11.png" alt="">
+                    <img id="11" class="" src="/images/question12.png" alt="">
+                    <img id="12" class="" src="/images/question13.png" alt="">
+                    <img id="13" class="" src="/images/question14.png" alt="">
+                    <img id="14" class="" src="/images/question15.png" alt="">
+                    <img id="15" class="" src="/images/question16.png" alt="">
+                    <img id="16" class="" src="/images/question17.png" alt="">
+                    <img id="17" class="" src="/images/question18.png" alt="">
+                    <img id="18" class="" src="/images/question19.png" alt="">
+                    <img id="19" class="" src="/images/question20.png" alt="">
+                </div>
+                <div class="rightArrow">
+                    <img src="/images/right.png" alt="">
+                </div>
+            </div>
+            <div class="chooseContainer">
+                <div id="0" class="cloumn">
+                    <img class="cloumn1" src="/images/veryOpposition.png" alt="">
+                    <img class="cloumn2" src="/images/fandui.png" alt="">
+                </div>
+                <div id="1" class="cloumn">
+                    <img class="cloumn1" src="/images/opposition.png" alt="">
+                    <img class="cloumn2" src="/images/youdian.png" alt="">
+                    <!-- <span>O</span> -->
+                </div>
+                <div id="2" class="cloumn">
+                    <img class="cloumn1" src="/images/neutral.png" alt="">
+                    <img class="cloumn2" src="/images/bufandui.png" alt="">
+                </div>
+                <div id="3" class="cloumn">
+                    <img class="cloumn1" src="/images/agree.png" alt="">
+                    <img class="cloumn2" src="/images/tongyi.png" alt="">
+                </div>
+                <div id="4" class="cloumn">
+                    <img class="cloumn1" src="/images/veryAgree.png" alt="">
+                    <img class="cloumn2" src="/images/shifentongyi.png" alt="">
+                </div>
+            </div>
+            <!-- <h1>阅读之前我们先来做个小测试</h1>
+            <div class="content">
+                <span>你的技能是如何组合的？</span>
+                <span>你的组织或团队有多创新？</span>
+            </div>
+            <img src="./chatu.png" alt="">
+            <button class="btn">开始测试</button> -->
+        </section>
+    </div>
+
+    <!--<footer>
+		<div class="wrapper">
+			<span class="copyright">
+				COPYRIGHT © 2018 Newegg Inc
+			</span>
+		</div>
+	</footer>-->
+</body>
+<script src="/javascripts/jquery-3.0.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        let currentChooses = {
+            0: -1,
+            1: -1,
+            2: -1,
+            3: -1,
+            4: -1,
+            5: -1,
+            6: -1,
+            7: -1,
+            8: -1,
+            9: -1,
+            10: -1,
+            11: -1,
+            12: -1,
+            13: -1,
+            14: -1,
+            15: -1,
+            16: -1,
+            17: -1,
+            18: -1,
+            19: -1
+        };
+        let currentQuestionIndex = 0;
+        $('.cloumn').click(function (e) {
+            console.log(this.id)
+            let column = $('.cloumn');
+            column.map((child) => {
+                if (column[child] && $(column[child]).html) {
+                    $(column[child]).html($(column[child]).html().replace('<span>o</span>', ''))
+                }
+            })
+            currentChooses[currentQuestionIndex] = parseInt(this.id);
+            $($('.cloumn')[this.id]).append('<span>o</span>');
+            let submit = true;
+            let score = [];
+            for (var key in currentChooses) {
+                score.push(currentChooses[key]);
+                if (currentChooses[key] < 0) {
+                    submit = false
+                }
+            }
+            if (submit) {
+                console.log(currentChooses);
+                $.ajax({
+                    type: 'get',
+                    url: '/api/createScore',
+                    data: { score: score.join(',') },
+                    dataType: 'json',
+                    success: function (res) {
+                        console.log('res', res)
+                        if (res && res.status && res.msg) {
+                            if(res.status === 'redirect'){
+                                location.href = res.redirectUrl
+                            }
+                            else if (res.status === 'failed') {
+                                alert(res.msg)
+                            }
+                            else {
+                                location.href = '/result'
+                            }
+                            // if (res.status === 'success') {
+                            //     location.href = '/home'
+                            // }
+                        }
+                    }
+                });
+            }
+            else{
+                $('.rightArrow').click()
+            }
+        });
+
+        $('.leftArrow').click(function () {
+            let id = $('.questionImg .active')[0].id;
+            currentQuestionIndex = parseInt(id) - 1;
+            if (id == 0) {
+                return;
+            }
+            else {
+                $('.questionImg .active').removeClass('active');
+                $('.questionImg img')[currentQuestionIndex].className = 'active';
+                let column = $('.cloumn');
+                column.map((child) => {
+                    if (column[child] && $(column[child]).html) {
+                        $(column[child]).html($(column[child]).html().replace('<span>o</span>', ''))
+                    }
+                })
+                let id = currentChooses[currentQuestionIndex];
+                $($('.cloumn')[id]).append('<span>o</span>');
+            }
+        })
+
+        $('.rightArrow').click(function () {
+            let id = $('.questionImg .active')[0].id;
+            currentQuestionIndex = parseInt(id) + 1;
+            if (id == 19) {
+                return;
+            }
+            else {
+                $('.questionImg .active').removeClass('active');
+                $('.questionImg img')[currentQuestionIndex].className = 'active';
+                let column = $('.cloumn');
+                column.map((child) => {
+                    if (column[child] && $(column[child]).html) {
+                        $(column[child]).html($(column[child]).html().replace('<span>o</span>', ''))
+                    }
+                })
+                let id = currentChooses[currentQuestionIndex];
+                $($('.cloumn')[id]).append('<span>o</span>');
+            }
+        })
+    })
+</script>
+
+</html>

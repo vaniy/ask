@@ -1,0 +1,49 @@
+.sidebar-nav{
+    position: fixed;
+    width: 20%;
+    height: 100% !important;
+    background: lightblue;
+    left: 0!important;Ï
+}
+
+.main_container{
+    margin-left: 20% !important;
+    left: 0!important;Ï
+}
+
+.left.btn{
+    width: 80%;
+    margin-left: 10%;
+    height: 30px;
+}
+
+.leftNavigation{
+    padding-top: 50px;
+}
+
+.main{
+    /*width: 60%;*/
+    padding-left: 10%;
+    padding-top: 50px;
+}
+
+.right{
+    position: absolute;
+    width: 20%;
+    right: 10% !important;
+    top: 50px;
+}
+
+input{
+    width: 40%;
+    /*right: 30%;*/
+}
+
+textarea{
+    width: 40%;
+    height: 80px;
+}
+
+.delete{
+    color: red;
+}

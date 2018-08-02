@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=route %>
+    </title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/managementSign.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style - all.css">
+</head>
+
+<body>
+    <!-- <div class="main_container">
+        <div class="section"> -->
+    <!-- <input type="text" class="phoneNumber" placeholder="">
+            <input type="password" class="password" placeholder="密码">
+            <button class="reset">重置</button>
+            <button class="submit">提交</button> -->
+    <!-- </div> -->
+    <!-- </div> -->
+    <div id="slick-login">
+        <label for="username">username</label><input type="text" name="username" class="phoneNumber" placeholder="用户名">
+        <label for="password">password</label><input type="password" name="password" class="password" placeholder="密码">
+        <input type="submit" class="submit" value="Log In">
+    </div>
+    <!-- <form>
+        
+        <input type="text" class="phoneNumber" name="username">
+        <input type="password"class="password" name="password">
+        <input type="submit" class="submit" value="Log In">
+    </form> -->
+
+    <script src="/javascripts/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.reset').click(function() {
+                $('.phoneNumber').val('');
+                $('.password').val('');
+            })
+            $('.submit').click(function() {
+                var phoneNumber = $('.phoneNumber').val();
+                var password = $('.password').val();
+                var urlParams = document.title === 'view' ? 'view' : 'management';
+                if (phoneNumber && phoneNumber.length > 0) {
+                    $.ajax({
+                        url: '/' + urlParams + '/signIn',
+                        type: 'POST',
+                        data: {
+                            phoneNumber: phoneNumber,
+                            password: password.trim(),
+                            status: $('#slick-login').attr('value')
+                        },
+                        dataType: 'JSON',
+                        cache: false,
+                        success: function(data) {
+                            if (data && data.status && data.status === 'failed') {
+                                alert('用户名密码错误')
+                            } else {
+                                location.href = '/management';
+                            }
+                        },
+                        error: function(data) {
+                            alert('internal server error')
+                        }
+                    })
+                } else {
+                    alert('请输入正确的账号')
+                }
+            })
+        })
+    </script>
+</body>

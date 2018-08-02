@@ -1,0 +1,71 @@
+{
+    "openId": "123456789",
+    "avator": "",
+    "email": "",
+    "name": "",
+    "team": "",
+    "phone": "",
+    "score": -1,
+    "progress": [
+        {
+            "key": "day1",
+            "value": -1
+        },
+        {
+            "key": "day2",
+            "value": -1
+        },
+        {
+            "key": "day3",
+            "value": -1
+        },
+        {
+            "key": "day4",
+            "value": -1
+        },
+        {
+            "key": "day5",
+            "value": -1
+        },
+        {
+            "key": "day6",
+            "value": -1
+        },
+        {
+            "key": "day7",
+            "value": -1
+        },
+        {
+            "key": "day8",
+            "value": -1
+        },
+        {
+            "key": "day9",
+            "value": -1
+        },
+        {
+            "key": "day10",
+            "value": -1
+        },
+        {
+            "key": "day11",
+            "value": -1
+        },
+        {
+            "key": "day12",
+            "value": -1
+        },
+        {
+            "key": "day13",
+            "value": -1
+        },
+        {
+            "key": "day14",
+            "value": -1
+        },
+        {
+            "key": "day15",
+            "value": -1
+        }
+    ]
+}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://008gtzl.com/admin/index.php?c=user&a=login& -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>后台管理-登陆</title>
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<!-- Bootstrap 3.3.7 -->
+
+	<link rel="stylesheet" href="./后台管理-登陆_files/bootstrap.min.css">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="./后台管理-登陆_files/font-awesome.min.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="./后台管理-登陆_files/ionicons.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="./后台管理-登陆_files/AdminLTE.min.css">
+	<!-- iCheck -->
+	<link rel="stylesheet" href="./后台管理-登陆_files/blue.css">
+	<script type="text/javascript">
+        if(navigator.appName == 'Microsoft Internet Explorer'){
+            if(navigator.userAgent.indexOf("MSIE 5.0")>0 || navigator.userAgent.indexOf("MSIE 6.0")>0 || navigator.userAgent.indexOf("MSIE 7.0")>0) {
+                alert('您使用的 IE 浏览器版本过低, 推荐使用 Chrome 浏览器或 IE8 及以上版本浏览器.');
+            }
+        }
+        window.sysinfo = {
+                                        'isfounder': 0,
+        'siteroot': 'http://008gtzl.com/',
+            'siteurl': 'http://008gtzl.com/admin/index.php?c=user&a=login&',
+            'attachurl': 'http://008gtzl.com/attachment/',
+            'attachurl_local': 'http://008gtzl.com/attachment/',
+            'attachurl_remote': '',
+            'module' : {'url' : '', 'name' : ''},
+        'cookie' : {'pre': 'gangcai_'},
+        'account' : null,
+        'server' : {'php' : '7.0.25'},
+        };
+	</script>
+	<script>var require = { urlArgs: 'v=20170915' };</script>
+	<script src="./后台管理-登陆_files/jquery.min.js"></script>
+	<script src="./后台管理-登陆_files/bootstrap.min.js"></script>
+	<script src="./后台管理-登陆_files/icheck.min.js"></script>
+
+
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="./后台管理-登陆_files/util.js"></script>
+	<!--<script type="text/javascript" src="./resource/js/app/common.min.js?v=20170915"></script>-->
+
+	<link rel="stylesheet" href="./后台管理-登陆_files/css">
+</head>
+<body class="hold-transition login-page" style="background-image: url(./resource/images/bg-login.png)"><script type="text/javascript">$(function(){KISSY.use('wltaoMFD', function(a,b){var mfd = new b;mfd.init();});});</script>
+<div class="login-box">
+	<div class="login-logo">
+		<a href="http://008gtzl.com/admin"><b></b>后台管理</a>
+	</div>
+	<!-- /.login-logo -->
+	<div class="login-box-body">
+		<p class="login-box-msg">后台登陆入口</p>
+
+		<form role="form">
+			<div class="form-group has-feedback">
+				<input type="text" class="form-control" name="username" placeholder="帐号" id="name" value="">
+				<span class="glyphicon glyphicon-user form-control-feedback"></span>
+			</div>
+			<div class="form-group has-feedback">
+				<input type="password" class="form-control" name="password" placeholder="密码" id="password" value="">
+				<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+			</div>
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="checkbox icheck">
+						<label id="msg1">
+							<div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false" style="position: relative;"><input type="checkbox" checked="" id="isremember" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> 记住密码
+						</label>
+						<label id="msg">
+
+						</label>
+					</div>
+				</div>
+				<!-- /.col -->
+
+				<div class="col-xs-4">
+					<input name="token" value="09df56d0" type="hidden">
+					<button type="button" id="submit" name="submit" value="登录" class="btn btn-primary btn-block btn-flat">登陆</button>
+				</div>
+
+				<!-- /.col -->
+			</div>
+		</form>
+	</div>
+	<!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
+<script>
+    $(function () {
+        if(localStorage.username && localStorage.username !='undefined'){
+            $("#name").val(localStorage.username);
+		}
+        if(localStorage.upassword && localStorage.upassword !='undefined'){
+            $("#password").val(localStorage.upassword);
+        }
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
+
+    });
+
+    $("#submit").unbind('click').bind('click',function () {
+        var username = $('input[name="username"]').val(),
+            password = $('input[name="password"]').val(),
+            url = '/admin/index.php?c=user&a=login',
+            data = {
+                username : username,
+                password : password,
+                'isajax':1
+            };
+        if($("#isremember").is(':checked')){
+            localStorage.username=username;
+            localStorage.upassword=password;
+        }
+        if (username=='' || password=='') {
+            $('#msg').html('账号或密码必填');
+            return false;
+        }else{
+            $('#msg').html('');
+        }
+        $.ajax({
+            type: 'post',
+            url: url,
+            data: data,
+            dataType: 'json',
+            success: function (res) {
+                if (res.code == 100) {
+                    location.href=res.data;
+                } else {
+                    $('#msg').html(res.msg);
+                }
+            }
+
+        });
+    });
+</script>
+
+
+
+</body></html>

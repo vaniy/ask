@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="keywords" content=" react training">
+    <meta name="description" content=" react training ">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                document
+                    .write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+            } else {
+                document
+                    .write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document
+                .write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+    <style type='text/css'>
+        body {
+            /* background: url('/bg.png') no-repeat center bottom fixed;
+            background-size: 100%; */
+            background-color: #fdfdfd
+        }
+
+        nav {
+            /* width: 100%; */
+            display: flex;
+            flex-direction: row;
+            border-bottom: #ececec solid 1.5vh;
+            padding: 2vh 4vh;
+            justify-content: space-between;
+        }
+
+        nav .flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        nav .left {
+            color: #666666;
+            font-size: 5vw;
+        }
+
+        nav .left img {
+            width: 5vw;
+            height: 5vw;
+        }
+
+        nav .left span {
+            padding-left: 20px;
+        }
+
+        nav .right a {
+            padding-right: 20px;
+            text-decoration: none;
+            color: #8e8e8e;
+            font-size: 4vw;
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        section .colorBlue {
+            background: #165299
+        }
+
+        section .colorDefault {
+            background: #bfbfbf
+        }
+
+        section .colorPurple {
+            background: #771c4b
+        }
+
+        section .colorRed {
+            background: #cb2471
+        }
+
+        section .colorOrange {
+            background: #ec6728
+        }
+
+        section .colorGreen {
+            background: #59c1cd
+        }
+
+        section .myProcess {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            width: 88%;
+        }
+
+        section .myProcess h1 {
+            font-size: 4vw;
+        }
+
+        section .myProcess .processes {
+            border: #dfdfdf solid 1px;
+            border-radius: 5px;
+            padding-bottom: 3vw;
+            background: #f7f7f7;
+        }
+
+        section .myProcess .process {
+            display: flex;
+            flex-direction: row;
+        }
+
+        section .myProcess .contentText {
+            color: #666666;
+            font-size: 3.5vw;
+            margin-top: 3vw;
+        }
+
+        section .myProcess .process .info {
+            display: flex;
+            flex-direction: column;
+            flex: 5;
+            margin-left: 3vw
+        }
+
+        section .myProcess .process .info .day {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        section .myProcess .process .info .day span {
+            color: #9d9d9d;
+            font-size: 3vw;
+        }
+
+        section .myProcess .process .line {
+            display: flex;
+            flex: 1;
+            margin: 2vw 0 1vw 0;
+        }
+
+        section .myProcess .process .left {
+            width: 40%;
+            height: 2vh;
+        }
+
+        section .myProcess .process .right {
+            width: 60%;
+            height: 2vh;
+        }
+
+        section .myProcess .process .percent {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section .myProcess .process .percent span{
+            margin-top: 4.5vw;
+        }
+    </style>
+    <!-- The Fonts -->
+    <!--<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet">-->
+    <!-- The Main CSS File -->
+    <!--<link rel="stylesheet" href="/static/CSS/style.css">
+    <link rel="stylesheet" href="/static/CSS/button.css">-->
+</head>
+
+<body style="margin:0; flex:1">
+    <nav>
+        <div class="flex left">
+            <img src="/images/daohang.png" alt="">
+            <span>团队排行</span>
+        </div>
+        <div class="flex right">
+            <a href="/myAccount">返回</a>
+            <img src="/images/rightArrow.png" alt="">
+        </div>
+    </nav>
+    <div id="root">
+        <section>
+            <div class="myProcess">
+                <h1>团队阅读排行:</h1>
+                <div class="processes">
+                    <%readGroup.forEach(function(child){ %>
+                    <div class="process">
+                        <div class="info">
+                            <span class="contentText"><%=child.title %>：</span>
+                            <div class="line">
+                                <div class="left colorBlue" style="width: <%=child.readPercentage %>%"></div>
+                                <div class="right colorDefault" style="width: <%=100-child.readPercentage %>%"></div>
+                            </div>
+                            <div class="day">
+                                <span>阅读进度平均值</span>
+                                <span>总共：15天</span>
+                            </div>
+                        </div>
+                        <div class="percent">
+                            <span class="contentText"><%=child.readPercentage %>%</span>
+                        </div>
+                    </div>
+                    <% })%>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="myProcess">
+                <h1>团队参与人数比例排行：</h1>
+                <div class="processes">
+                    <%inGroup.forEach(function(child){ %>
+                    <div class="process">
+                        <div class="info">
+                            <span class="contentText"><%=child.title %>：</span>
+                            <div class="line">
+                                <div class="left colorRed" style="width: <%=child.percentage %>%"></div>
+                                <div class="right colorDefault" style="width: <%=100-child.percentage %>%"></div>
+                            </div>
+                            <div class="day">
+                                <span>参与人数：<%=child.readPersonCount %>人</span>
+                                <span>总共：<%=child.allPersonCount %>人</span>
+                            </div>
+                        </div>
+                        <div class="percent">
+                            <span class="contentText"><%=child.percentage %>%</span>
+                        </div>
+                    </div>
+                    <% })%>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

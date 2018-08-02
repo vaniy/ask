@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="keywords" content=" react training">
+    <meta name="description" content=" react training ">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                document
+                    .write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+            } else {
+                document
+                    .write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document
+                .write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+    <style type='text/css'>
+        body {
+            /* background: url('/bg.png') no-repeat center bottom fixed;
+            background-size: 100%; */
+            background-color: #fdfdfd
+        }
+
+        nav {
+            /* width: 100%; */
+            display: flex;
+            flex-direction: row;
+            border-bottom: #ececec solid 1.5vh;
+            padding: 2vh 4vh;
+            justify-content: space-between;
+        }
+
+        nav .flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        nav .left {
+            color: #666666;
+            font-size: 5vw;
+        }
+
+        nav .left img {
+            width: 5vw;
+            height: 5vw;
+        }
+
+        nav .left span {
+            padding-left: 20px;
+        }
+
+        nav .right a {
+            padding-right: 20px;
+            text-decoration: none;
+            color: #8e8e8e;
+            font-size: 4vw;
+        }
+
+        section {
+            display: flex;
+            /* align-items: center; */
+            flex-direction: column;
+        }
+
+        section .user {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            height: 28vh;
+            background-color: #165299
+        }
+
+        section .nickImg {
+            flex: 1.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        section .name {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        section .name span {
+            color: white;
+            font-size: 8vw
+        }
+
+        section .userRoute {
+            text-decoration: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: #e5e5e5 solid 0.5vw;
+            padding: 2vh 5vw;
+        }
+
+        section .userRoute .icon {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        section .userRoute .icon image {
+            width: 8vw;
+            height: 8vw;
+        }
+
+        section .userRoute>:last-child {
+            width: 3vw;
+            height: 6vw;
+        }
+
+        section .userRoute .icon span {
+            margin-left: 2.5vw;
+            color: #666666;
+            font-size: 5vw
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 1.5vh 0;
+            /* justify-content: space-between; */
+            background-color: #e5e5e5;
+            width: 100%;
+        }
+
+        footer .bottom {
+            text-decoration: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer .bottom span {
+            color: #666666;
+            font-size: 4vw;
+        }
+
+        /* section h1 {
+            color: #165299;
+            font-size: 5vw;
+            padding-top: 4vh;
+        }
+
+        section .btn {
+            font-size: 6vw;
+            margin-top: 7vw;
+            width: 70%;
+            background-color: #165299;
+            color: white;
+            border-radius: 5px
+        }
+
+        section .score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        section .score span {
+            font-size: 12vw;
+            color: #165299;
+            font-weight: bold
+        }
+
+        section .description{
+            width: 50%;
+            text-align: center
+        }
+
+        section .description span {
+            font-size: 4vw;
+            color: #165299;
+        } */
+
+        /* section .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 10px
+        }
+
+        section .content span {
+            font-size: 6vw;
+            color: #5ac0cd
+        }
+
+        section .btn {
+            font-size: 6vw;
+            margin-top: 7vw;
+            width: 70%;
+            background-color: #165299;
+            color: white;
+            border-radius: 5px
+        } */
+    </style>
+    <!-- The Fonts -->
+    <!--<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet">-->
+    <!-- The Main CSS File -->
+    <!--<link rel="stylesheet" href="/static/CSS/style.css">
+    <link rel="stylesheet" href="/static/CSS/button.css">-->
+</head>
+
+<body style="margin:0; flex:1">
+    <nav>
+        <div class="flex left">
+            <img src="/images/daohang.png" alt="">
+            <span>丹纳赫《创新者的基因》</span>
+        </div>
+        <div class="flex right">
+        </div>
+    </nav>
+    <div id="root">
+        <section>
+            <div class="user">
+                <div class="nickImg">
+                    <img src="<%=user.avator || '/images/nick.png' %>" alt="">
+                </div>
+                <div class="name">
+                    <span>
+                        <%=user.name %>
+                    </span>
+                </div>
+            </div>
+            <a href="/userInfo" class="userRoute">
+                <div class="icon">
+                    <img src="/images/info.png" alt="">
+                    <span>个人信息</span>
+                </div>
+                <img src="/images/rightArrow.png" alt="">
+            </a>
+            <a href="/myProcess" class="userRoute">
+                <div class="icon">
+                    <img src="/images/statement.png" alt="">
+                    <span>个人战报</span>
+                </div>
+                <img src="/images/rightArrow.png" alt="">
+            </a>
+            <a href="/ranking" class="userRoute">
+                <div class="icon">
+                    <img src="/images/ranking.png" alt="">
+                    <span>团队排行</span>
+                </div>
+                <img src="/images/rightArrow.png" alt="">
+            </a>
+            <a href="<%=score1 && score1 >0?'/result':'/test' %>" class="userRoute">
+                <div class="icon">
+                    <img src="/images/test.png" alt="">
+                    <span>技能测试</span>
+                </div>
+                <img src="/images/rightArrow.png" alt="">
+            </a>
+            <!-- <div class="score">
+                <h1>发现技能得分</h1>
+                <span>45分</span>
+            </div>
+            <div class="score">
+                <h1>组织团队得分</h1>
+                <span>45分</span>
+            </div>
+            <div class="description">
+                <span>恭喜你，你的发现技能得分十分高 你的你的组织或团队创新者基因 得分非常高</span>
+            </div>
+            <button class="btn">开始阅读</button> -->
+            <!-- <h1>阅读之前我们先来做个小测试</h1>
+            <div class="content">
+                <span>你的技能是如何组合的？</span>
+                <span>你的组织或团队有多创新？</span>
+            </div>
+            <img src="./chatu.png" alt="">
+            <button class="btn">开始测试</button> -->
+        </section>
+    </div>
+
+    <footer>
+        <a href="/read" class="bottom">
+            <img src="/images/homeNormal.png" alt="">
+            <span>今日阅读</span>
+        </a>
+        <a href="/plan" class="bottom">
+            <img src="/images/planNormal.png" alt="">
+            <span>计划</span>
+        </a>
+        <a href="/myAccount" class="bottom">
+            <img src="/images/account.png" alt="">
+            <span>我的</span>
+        </a>
+    </footer>
+    <!--<footer>
+		<div class="wrapper">
+			<span class="copyright">
+				COPYRIGHT © 2018 Newegg Inc
+			</span>
+		</div>
+	</footer>-->
+</body>
+
+</html>

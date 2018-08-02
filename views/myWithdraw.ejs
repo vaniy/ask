@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/myWithdraw.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <title>我要提现</title>
+</head>
+
+<body>
+    <div class="wx_container">
+        <div class="user">
+            <div class="input">
+                <span>账户姓名：</span>
+                <input type="text" ／>
+            </div>
+            <div class="input">
+                <span>银行卡号：</span>
+                <input type="text" ／>
+            </div>
+            <div class="input">
+                <span>所属银行：</span>
+                <input type="text" ／>
+            </div>
+            <div class="input">
+                <span>提现金额：</span>
+                <input type="text" placeholder="请输入提现金额（元）" ／>
+            </div>
+        </div>
+        <div class="withDrawBtn">
+            <span class="btn colorWhite fontSize12">确定提现</span>
+        </div>
+        <div class="info">
+            <span class="title">温馨提醒:</span>
+            <span class="content fontSize10">提现需要填写您的真实银行账户信息，请认真核对，所填写信息，必须跟您登记的个人信息保持一致，我们采用线下银行转账，当天提取，第二天到账，如未到账，请联系客服人员</span>
+        </div>
+
+    </div>
+    <script src="/javascripts/jquery-3.0.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".btn").click(function() {
+                var inputs = $('input');
+                var name = inputs[0].value;
+                var card = inputs[1].value;
+                var bank = inputs[2].value;
+                var price = inputs[3].value;
+                if (!(parseFloat(price) > 0)) {
+                    alert('请输入正确的金额')
+                } else if (bank == '') {
+                    alert('请输入银行')
+                } else {
+                    $.ajax({
+                        url: '/api/withDraw',
+                        type: 'post',
+                        data: {
+                            name: name,
+                            card: card,
+                            bank: bank,
+                            price: price,
+                        },
+                        dataType: 'json',
+                        success: function(data) {
+                            if (data.status == 'success') {
+                                alert('提现成功');
+                                setTimeout(function() {
+                                    location.href = '/account';
+                                }, 2000);
+                            } else {
+                                if (data.msg) {
+                                    alert(data.msg)
+                                }
+                            }
+                        },
+                        error: function(status) {
+                            if (status == 'error') {
+                                alert('请稍后再试')
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

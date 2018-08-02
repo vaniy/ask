@@ -1,0 +1,96 @@
+body {
+    background: #f6f6f6;
+}
+
+.wx_container {
+    width: 100%;
+    height: 100%;
+    background: #f6f6f6;
+}
+
+.wx_container .topBanner {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    z-index: -1;
+}
+
+.wx_container .top {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 20%;
+}
+
+.wx_container .top .title {
+    font-size: 24px;
+    background: white;
+    padding: 2% 1%;
+    width: 23%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.wx_container .top .right {
+    display: flex;
+    flex-direction: column;
+    padding-right: 6%;
+    border: 1px solid white;
+}
+
+.wx_container .count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+}
+
+.wx_container .count .icon {
+    width: 6%;
+}
+
+.wx_container .ranking {
+    background: white;
+    padding-bottom: 50%;
+}
+
+.wx_container .ranking .title {
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    border-bottom: 2px solid red;
+}
+
+.wx_container .ranking .person {
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 3%;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+}
+
+.wx_container .ranking .person .left {
+    display: flex;
+    align-items: center;
+}
+
+.wx_container .ranking .person .left .per {
+    width: 16%;
+    padding-left: 4%;
+}
+
+.wx_container .ranking .person .left .number {
+    /* padding: 0 4%; */
+}
+
+.bottom {
+    width: 100%;
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: center;
+}
+
+.bottom img {
+    padding-top: 7%;
+}

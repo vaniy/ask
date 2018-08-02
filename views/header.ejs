@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://vars.hotjar.com/rcj-99d43ead6bdf30da8ed5ffcb4f17100c.html -->
+<html lang=<%=language.common.languageCode %>>
+
+<body>
+    <nav class="header bg-header transparent-dark dark ">
+        <div class="container relative">
+            <!-- begin left content -->
+            <div class="pull-left">
+                <!-- .header-inner 垂直对齐 -->
+                <div class="header-inner">
+                    <!-- begin logo -->
+                    <a href="">
+                        <!-- <img src="./img/page_logo.png" class="logo" alt="肯倍欢迎您"> -->
+                    </a>
+                </div>
+            </div>
+
+            <!-- begin right content -->
+            <div class="language pull-right" data-pages-diretion="slideRight" id="header">
+                <!-- begin menu-lang items 语言-->
+                <div class="header-inner">
+                    <ul class="language">
+                        <li class="classic">
+                            <a href="#" class="text-white">
+                                <%=language.common.languageName %>
+                            </a>
+                            <!-- <i class="pg-arrow_minimize m-1-5"></i> -->
+                            <nav class="classic">
+                                <span class="arrow"></span>
+                                <ul class="lang-dropdown" style="display: none">
+                                    <li>
+                                        <a href="/zh-CN<%=route %>">中文</a>
+                                        <a href="/en-US<%=route %>">English</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </li>
+                    </ul>
+
+                    <button class="menu btn" type="button" style="font: -webkit-body !important">
+                        <span><%=language.common.menu %></span>
+                      </button>
+                </div>
+            </div>
+
+            <%- include menu.ejs %>
+        </div>
+    </nav>
+</body>
+
+<script src="/javascripts/jquery-3.0.0.min.js"></script>
+<script src="/javascripts/header.js"></script>
+
+</html>

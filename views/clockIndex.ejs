@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/clockIndex.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <title>打卡计划</title>
+</head>
+
+<body>
+    <div class="wx_container">
+        <img class="topBanner" src="/images/clock.png" alt="">
+        <div class="top">
+            <span class="title">她朵可</span>
+            <div class="right">
+                <span class="day colorOrange fontSize20">42天<span class="colorWhite fontSize16">打卡计划</span></span>
+                <span class="fontSize10 colorGrey">初始体重：<%=result.data && result.data.initialWeight ? result.data.initialWeight:0%>公斤</span>
+            </div>
+        </div>
+        <div class="group">
+            <div class="title">
+                <div class="left">
+                    <img class="icon" src="/images/iconjifen.png" alt="" />
+                    <span><%=result.persons && result.persons.length > 0 ? result.persons.length:0%>人已参加</span>
+                </div>
+                <a href="/checkClock" class="right">
+                    <span class="colorWhite fontSize14">我的打卡记录</span>
+                </a>
+            </div>
+            <div class="participant">
+                <%if(result.persons && result.persons.length > 0){ result.persons.forEach(function(item){%>
+                    <img class="person" src="<%=item%>" alt="" />
+                    <!-- <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" />
+                    <img class="person" src="/images/portrait.png" alt="" /> -->
+                    <%}) }%>
+                        <a href="/ranking"><img class="person" src="/images/more.png" alt="" /></a>
+                        <!-- <div class="more">
+                    <span>更多排名</span>
+                </div> -->
+            </div>
+        </div>
+        <div class="explain">
+            <span class="title">参与规则：</span>
+            <span class="content fontSize12">
+                您可以在此记录每天的体重变化情况，我们将对参与用户进行每天排名，以促进您的瘦身计划
+            </span>
+        </div>
+        <div class="plan">
+            <div class="title">
+                <img class="icon" src="/images/iconjifen.png" alt="" />
+                <span>计划列表</span>
+            </div>
+            <div class="content">
+                <div class="day">
+                    <a href="<%=clock[0].link ? '#' : 'addClock?day=1'%>" class="one <%=clock[0].pass ? 'active':''%>">01</a>
+                    <a href="<%=clock[1].link ? '#' : 'addClock?day=2'%>" class="one <%=clock[1].pass ? 'active':''%>">02</a>
+                    <a href="<%=clock[2].link ? '#' : 'addClock?day=3'%>" class="one <%=clock[2].pass ? 'active':''%>">03</a>
+                    <a href="<%=clock[3].link ? '#' : 'addClock?day=4'%>" class="one <%=clock[3].pass ? 'active':''%>">04</a>
+                    <a href="<%=clock[4].link ? '#' : 'addClock?day=5'%>" class="one <%=clock[4].pass ? 'active':''%>">05</a>
+                    <a href="<%=clock[5].link ? '#' : 'addClock?day=6'%>" class="one <%=clock[5].pass ? 'active':''%>">06</a>
+                </div>
+                <div class="day">
+                    <a href="<%=clock[6].link ? '#' : 'addClock?day=7'%>" class="one <%=clock[6].pass ? 'active':''%>">07</a>
+                    <a href="<%=clock[7].link ? '#' : 'addClock?day=8'%>" class="one <%=clock[7].pass ? 'active':''%>">08</a>
+                    <a href="<%=clock[8].link ? '#' : 'addClock?day=9'%>" class="one <%=clock[8].pass ? 'active':''%>">09</a>
+                    <a href="<%=clock[9].link ? '#' : 'addClock?day=10'%>" class="one <%=clock[9].pass ? 'active':''%>">10</a>
+                    <a href="<%=clock[10].link ? '#' : 'addClock?day=11'%>" class="one <%=clock[10].pass ? 'active':''%>">11</a>
+                    <a href="<%=clock[11].link ? '#' : 'addClock?day=12'%>" class="one <%=clock[11].pass ? 'active':''%>">12</a>
+                </div>
+                <div class="day">
+                    <a href="<%=clock[12].link ? '#' : 'addClock?day=13'%>" class="one <%=clock[12].pass ? 'active':''%>">13</a>
+                    <a href="<%=clock[13].link ? '#' : 'addClock?day=14'%>" class="one <%=clock[13].pass ? 'active':''%>">14</a>
+                    <a href="<%=clock[14].link ? '#' : 'addClock?day=15'%>" class="one <%=clock[14].pass ? 'active':''%>">15</a>
+                    <a href="<%=clock[15].link ? '#' : 'addClock?day=16'%>" class="one <%=clock[15].pass ? 'active':''%>">16</a>
+                    <a href="<%=clock[16].link ? '#' : 'addClock?day=17'%>" class="one <%=clock[16].pass ? 'active':''%>">17</a>
+                    <a href="<%=clock[17].link ? '#' : 'addClock?day=18'%>" class="one <%=clock[17].pass ? 'active':''%>">18</a>
+                </div>
+                <div class="day">
+                    <a href="<%=clock[18].link ? '#' : 'addClock?day=19'%>" class="one <%=clock[18].pass ? 'active':''%>">19</a>
+                    <a href="<%=clock[19].link ? '#' : 'addClock?day=20'%>" class="one <%=clock[19].pass ? 'active':''%>">20</a>
+                    <a href="<%=clock[20].link ? '#' : 'addClock?day=21'%>" class="one <%=clock[20].pass ? 'active':''%>">21</a>
+                    <a href="<%=clock[21].link ? '#' : 'addClock?day=22'%>" class="one <%=clock[21].pass ? 'active':''%>">22</a>
+                    <a href="<%=clock[22].link ? '#' : 'addClock?day=23'%>" class="one <%=clock[22].pass ? 'active':''%>">23</a>
+                    <a href="<%=clock[23].link ? '#' : 'addClock?day=24'%>" class="one <%=clock[23].pass ? 'active':''%>">24</a>
+                </div>
+                <div class="day">
+                    <a href="<%=clock[24].link ? '#' : 'addClock?day=25'%>" class="one <%=clock[24].pass ? 'active':''%>">25</a>
+                    <a href="<%=clock[25].link ? '#' : 'addClock?day=26'%>" class="one <%=clock[25].pass ? 'active':''%>">26</a>
+                    <a href="<%=clock[26].link ? '#' : 'addClock?day=27'%>" class="one <%=clock[26].pass ? 'active':''%>">27</a>
+                    <a href="<%=clock[27].link ? '#' : 'addClock?day=28'%>" class="one <%=clock[27].pass ? 'active':''%>">28</a>
+                    <a href="<%=clock[28].link ? '#' : 'addClock?day=29'%>" class="one <%=clock[28].pass ? 'active':''%>">29</a>
+                    <a href="<%=clock[29].link ? '#' : 'addClock?day=30'%>" class="one <%=clock[29].pass ? 'active':''%>">30</a>
+                </div>
+                <div class="day">
+                    <a href="<%=clock[30].link ? '#' : 'addClock?day=31'%>" class="one <%=clock[30].pass ? 'active':''%>">31</a>
+                    <a href="<%=clock[31].link ? '#' : 'addClock?day=32'%>" class="one <%=clock[31].pass ? 'active':''%>">32</a>
+                    <a href="<%=clock[32].link ? '#' : 'addClock?day=33'%>" class="one <%=clock[32].pass ? 'active':''%>">33</a>
+                    <a href="<%=clock[33].link ? '#' : 'addClock?day=34'%>" class="one <%=clock[33].pass ? 'active':''%>">34</a>
+                    <a href="<%=clock[34].link ? '#' : 'addClock?day=35'%>" class="one <%=clock[34].pass ? 'active':''%>">35</a>
+                    <a href="<%=clock[35].link ? '#' : 'addClock?day=36'%>" class="one <%=clock[35].pass ? 'active':''%>">36</a>
+                </div>
+                <div class="day">
+                    <a href="<%=clock[36].link ? '#' : 'addClock?day=37'%>" class="one <%=clock[36].pass ? 'active':''%>">37</a>
+                    <a href="<%=clock[37].link ? '#' : 'addClock?day=38'%>" class="one <%=clock[37].pass ? 'active':''%>">38</a>
+                    <a href="<%=clock[38].link ? '#' : 'addClock?day=39'%>" class="one <%=clock[38].pass ? 'active':''%>">39</a>
+                    <a href="<%=clock[39].link ? '#' : 'addClock?day=40'%>" class="one <%=clock[39].pass ? 'active':''%>">40</a>
+                    <a href="<%=clock[40].link ? '#' : 'addClock?day=41'%>" class="one <%=clock[40].pass ? 'active':''%>">41</a>
+                    <a href="<%=clock[41].link ? '#' : 'addClock?day=42'%>" class="one <%=clock[41].pass ? 'active':''%>">42</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

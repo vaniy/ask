@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/order.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <title>在线订购</title>
+</head>
+
+<body>
+    <div class="wx_container">
+        <div class="inputs fontSize12">
+            <input class="one" type="text" placeholder="您的姓名">
+            <input class="one" type="text" placeholder="联系电话">
+            <input class="one" type="text" placeholder="收货地址">
+            <div class="detail">
+                <!-- <input type="text" class="two" placeholder="当前体重"><span class="colorGrey ">公斤</span></input>
+                <input type="text" class="two" placeholder="当前腰围"><span class="colorGrey ">CM</span></input> -->
+                <input type="text" class="two" placeholder="当前体重(公斤)"></input>
+                <input type="text" class="two" placeholder="当前腰围(CM)"></input>
+            </div>
+            <div class="detail">
+                <!-- <input type="text" class="two" placeholder="当前体重"><span class="colorGrey ">公斤</span></input>
+                <input type="text" class="two" placeholder="当前腰围"><span class="colorGrey ">CM</span></input> -->
+                <input type="text" class="two" placeholder="当前臀围(CM)"></input>
+                <input type="text" class="two" placeholder="当前臂围(CM)"></input>
+            </div>
+        </div>
+        <div class="btn button">
+            <span class="colorWhite fontSize10">立即购买</span>
+        </div>
+        <div class="custom fontSize10 colorWhite">
+            <div class="block borderRight">
+                <img class="icon" src="/images/phone.png" alt="" />
+                <span>电话咨询</span>
+            </div>
+            <div class="block">
+                <img class="icon" src="/images/buy.png" alt="" />
+                <span class="button">立即购买</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascripts/jquery-3.0.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // var a = document.getElementsByClassName('today')[0]
+            // var id = a.innerText.length === 1 ? '0' + a.innerText : a.innerText;
+            // var day = new Date().toLocaleDateString();
+            // a.innerText = "第" + a.innerText + "天" + "（" + new Date().toLocaleDateString() + "）";
+            $(".button").click(function() {
+                var inputs = $('input');
+                var name = inputs[0].value;
+                var phone = inputs[1].value;
+                var address = inputs[2].value;
+                var weight = inputs[3].value;
+                var waist = inputs[4].value;
+                var hipline = inputs[5].value;
+                var arm = inputs[6].value;
+                if (name.trim() === '') {
+                    alert("请输入您的姓名")
+                } else if (phone.trim() === '') {
+                    alert("请输入您的手机号")
+                } else if (address.trim() === '') {
+                    alert("请输入您的送货地址")
+                } else {
+                    $.ajax({
+                        url: '/pay',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            if (data) {
+                                // location.href = '/account';
+                                function onBridgeReady(data) {
+                                    WeixinJSBridge.invoke(
+                                        'getBrandWCPayRequest', {
+                                            "appId": "wx4c10b88f9a6c8bc8", //公众号名称，由商户传入     
+                                            "timeStamp": data.timestamp, //时间戳，自1970年以来的秒数     
+                                            "nonceStr": data.nonceStr, //随机串     
+                                            "package": data.package,
+                                            "signType": "MD5", //微信签名方式：     
+                                            "paySign": data.paySign //微信签名 
+                                        },
+                                        function(res) {
+                                            // alert(res.err_msg);
+                                            if (res.err_msg == "get_brand_wcpay_request:ok" || res.err_msg == "chooseWXPay:ok") {
+                                                alert('支付成功')
+                                                var inputs = $('input');
+                                                var name = inputs[0].value;
+                                                var phone = inputs[1].value;
+                                                var address = inputs[2].value;
+                                                var weight = inputs[3].value;
+                                                var waist = inputs[4].value;
+                                                var hipline = inputs[5].value;
+                                                var arm = inputs[6].value;
+                                                $.ajax({
+                                                    url: '/api/createOrder',
+                                                    type: 'post',
+                                                    data: {
+                                                        name: name,
+                                                        phone: phone,
+                                                        address: address,
+                                                        initialWeight: weight && weight.length > 0 ? parseFloat(weight) : 0,
+                                                        waist: waist && waist.length > 0 ? parseFloat(waist) : 0,
+                                                        hipline: hipline && waist.length > 0 ? parseFloat(hipline) : 0,
+                                                        arm: arm && arm.length > 0 ? parseFloat(arm) : 0,
+                                                    },
+                                                    dataType: 'json',
+                                                    success: function(data) {
+                                                        if (data.status == 'success') {
+                                                            location.href = '/account';
+                                                        }
+                                                    },
+                                                    error: function(status) {
+                                                        if (status == 'error') {
+
+                                                        }
+                                                    }
+                                                });
+                                            } // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。 
+                                        }
+                                    );
+                                }
+                                if (typeof WeixinJSBridge == "undefined") {
+                                    if (document.addEventListener) {
+                                        document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                                    } else if (document.attachEvent) {
+                                        document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                                        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                                    }
+                                } else {
+                                    onBridgeReady(data);
+                                }
+                            }
+                        },
+                        error: function(status) {
+                            if (status == 'error') {
+
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

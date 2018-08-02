@@ -1,0 +1,143 @@
+body {
+    background: #f6f6f6;
+}
+
+.wx_container {
+    width: 100%;
+    height: 100%;
+    background: #f6f6f6;
+}
+
+.wx_container .topBanner {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    z-index: -1;
+}
+
+.wx_container .top {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 20%;
+}
+
+.wx_container .top .title {
+    font-size: 24px;
+    background: white;
+    padding: 2% 1%;
+    width: 23%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.wx_container .top .right {
+    display: flex;
+    flex-direction: column;
+    padding-right: 6%;
+    border: 1px solid white;
+}
+
+.wx_container .group .title {
+    display: flex;
+    width: 100%;
+}
+
+.wx_container .group .title .left {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.wx_container .group .title .left .icon {
+    width: 12%;
+}
+
+.wx_container .group .title .right {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2b7b7b;
+    margin-right: 3%;
+    border-radius: 20px;
+}
+
+.wx_container .participant {
+    width: 100%;
+    margin: 2%;
+}
+
+.wx_container .participant .person {
+    width: 8%;
+    border-radius: 50px;
+}
+
+.wx_container .explain {
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.wx_container .explain .content {
+    margin: 1% 5% 5% 5%;
+}
+
+.wx_container .explain .title {
+    margin-left: 2%;
+}
+
+.wx_container .plan .title {
+    display: flex;
+    align-items: center;
+    padding: 3%;
+    background: white;
+    margin-top: 2%;
+    border-bottom: 1px solid #ccc;
+}
+
+.wx_container .plan .icon {
+    width: 6%;
+}
+
+.wx_container .plan .content {
+    background: white;
+    padding-bottom: 8%;
+}
+
+.wx_container .plan .content .day {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 2%;
+}
+
+.wx_container .plan .content .day .one {
+    background: #ccc;
+    color: white;
+    border-radius: 50px;
+    padding: 1%;
+    font-size: 12px;
+    width: 5%;
+    text-align: center;
+}
+
+.wx_container .plan .content .day .one.active {
+    background: #2b7b7b !important;
+}
+
+.bottom {
+    width: 100%;
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: center;
+}
+
+.bottom img {
+    /* margin: 0 auto; */
+    padding-top: 20%;
+    padding-bottom: 18%;
+    /* position: absolute; */
+    bottom: 40px;
+}

@@ -1,0 +1,60 @@
+body {
+    background: #f6f6f6;
+}
+
+.wx_container {
+    width: 100%;
+    height: 100%;
+    background: #f6f6f6;
+}
+
+.wx_container .user {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.wx_container .user .input {
+    padding: 1% 3%;
+    display: flex;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.wx_container .withDrawBtn {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    background: white;
+    padding-top: 15px;
+}
+
+.wx_container .withDrawBtn .btn {
+    background: #2b7b7b;
+    padding: 1% 40%;
+    border-radius: 20px;
+}
+
+.wx_container .info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    background: white;
+}
+
+.wx_container .info .content {
+    padding: 1% 0 8% 8%;
+}
+
+.bottom {
+    width: 100%;
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: center;
+}
+
+.bottom img {
+    /* margin: 0 auto; */
+    padding-top: 40%;
+    padding-bottom: 18%;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/addClock.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <title>打卡计划</title>
+</head>
+
+<body>
+    <div class="wx_container">
+        <img class="topBanner" src="/images/clock.png" alt="">
+        <div class="top">
+            <span class="title">她朵可</span>
+            <div class="right">
+                <span class=" colorOrange fontSize20">42天<span class="colorWhite fontSize16">打卡计划</span></span>
+                <span class="fontSize10 colorGrey">初始体重：<%=result.data && result.data.initialWeight ? result.data.initialWeight:0%>公斤</span>
+            </div>
+        </div>
+        <div class="day">
+            <div class="left fontSize12">
+                <img class="icon" src="/images/iconjifen.png" alt="" />
+                <span class="today"><%=day %></span>
+            </div>
+            <div class="right colorWhite">
+                <span>填写记录表</span>
+            </div>
+        </div>
+        <div class="info">
+            <div class="line">
+                <span class="title fontSize12">今日体重（公斤）</span>
+                <div class="input">
+                    <input type="text" placeholder="请输入体重" />
+                </div>
+            </div>
+            <div class="line">
+                <span class="title fontSize12">昨日早餐</span>
+                <div class="input">
+                    <input type="text" placeholder="请输入粥，面条或其它" />
+                </div>
+            </div>
+            <div class="line">
+                <span class="title fontSize12">昨日午餐</span>
+                <div class="input">
+                    <input type="text" placeholder="请输入米饭，面条或其它" />
+                </div>
+            </div>
+            <div class="line">
+                <span class="title fontSize12">昨日晚餐</span>
+                <div class="input">
+                    <input type="text" placeholder="请输入米饭，面条或其它" />
+                </div>
+            </div>
+            <div class="line">
+                <span class="title fontSize12">昨日饮水量/L</span>
+                <div class="input">
+                    <input type="text" placeholder="请输入饮水量" />
+                </div>
+            </div>
+            <div class="line">
+                <span class="title fontSize12">昨日晚上睡觉时间</span>
+                <div class="input">
+                    <input type="text" placeholder="请输入时间" />
+                </div>
+            </div>
+            <div class="line">
+                <span class="title fontSize12">排便是否正常</span>
+                <div class="input">
+                    <input type="text" placeholder="请输入是或否" />
+                </div>
+            </div>
+        </div>
+        <input value="<%=result.data && result.data.initialWeight ? result.data.initialWeight:0%>" type="text" hidden />
+        <div class="btn colorWhite">
+            <span>提交保存</span>
+        </div>
+
+    </div>
+    <script src="/javascripts/jquery-3.0.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var a = document.getElementsByClassName('today')[0]
+            var id = a.innerText.length === 1 ? '0' + a.innerText : a.innerText;
+            var day = new Date().toLocaleDateString();
+            a.innerText = "第" + a.innerText + "天" + "（" + new Date().toLocaleDateString() + "）";
+            $(".btn").click(function() {
+                var inputs = $('input');
+                var weight = inputs[0].value;
+                var breadfast = inputs[1].value;
+                var launch = inputs[2].value;
+                var dinner = inputs[3].value;
+                var drink = inputs[4].value;
+                var sleep = inputs[5].value;
+                var health = inputs[6].value;
+                var initialWeight = inputs[7].value;
+                $.ajax({
+                    url: '/api/updateClock',
+                    type: 'post',
+                    data: {
+                        id: id,
+                        day: day,
+                        weight: weight && weight.length > 0 ? parseFloat(weight) : 0,
+                        breadfast: breadfast,
+                        launch: launch,
+                        dinner: dinner,
+                        drink: drink,
+                        sleep: sleep,
+                        health: health,
+                        initialWeight: initialWeight
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data.status == 'success') {
+                            location.href = '/clockIndex';
+                        }
+                    },
+                    error: function(status) {
+                        if (status == 'error') {
+
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

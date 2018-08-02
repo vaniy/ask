@@ -1,0 +1,181 @@
+{
+    "userId": "",
+    "openId": "123456789",
+    "preLevel": "1234567890",
+    "preName": "bbb",
+    "name": "aaa",
+    "phone": "",
+    "idCard": "",
+    "avator": "/images/portrait.png",
+    "photo": [
+
+    ],
+    "initialWeight": 77,
+    "waist": 23,
+    "hipline": 33,
+    "arm": 44,
+    "city": "",
+    "myBenfits": 400
+} {
+    "userId": "",
+    "openId": "1234567890",
+    "preLevel": "1234567891",
+    "preName": "ccc",
+    "name": "bbb",
+    "phone": "",
+    "idCard": "",
+    "avator": "/images/portrait.png",
+    "photo": [
+
+    ],
+    "initialWeight": 75,
+    "waist": 23,
+    "hipline": 33,
+    "arm": 44,
+    "city": "",
+    "myBenfits": 3000
+} {
+    "userId": "",
+    "openId": "1234567891",
+    "preLevel": "1234567892",
+    "preName": "ddd",
+    "name": "ccc",
+    "phone": "",
+    "idCard": "",
+    "avator": "/images/portrait.png",
+    "photo": [
+
+    ],
+    "initialWeight": 77,
+    "waist": 23,
+    "hipline": 33,
+    "arm": 44,
+    "city": "",
+    "myBenfits": 3000
+} {
+    "userId": "",
+    "openId": "1234567892",
+    "preLevel": "",
+    "preName": "",
+    "name": "ddd",
+    "phone": "",
+    "idCard": "",
+    "avator": "/images/portrait.png",
+    "photo": [
+
+    ],
+    "initialWeight": 77,
+    "waist": 23,
+    "hipline": 33,
+    "arm": 44,
+    "city": "",
+    "myBenfits": 3000
+} {
+    "userId": "",
+    "openId": "123456788",
+    "preLevel": "123456789",
+    "preName": "aaa",
+    "name": "eee",
+    "phone": "",
+    "idCard": "",
+    "avator": "/images/portrait.png",
+    "photo": [
+
+    ],
+    "initialWeight": 77,
+    "waist": 23,
+    "hipline": 33,
+    "arm": 44,
+    "city": "",
+    "myBenfits": 3000
+} {
+    "userId": "",
+    "openId": "123456787",
+    "preLevel": "123456788",
+    "preName": "eee",
+    "name": "fff",
+    "phone": "",
+    "idCard": "",
+    "avator": "/images/portrait.png",
+    "photo": [
+
+    ],
+    "initialWeight": 77,
+    "waist": 23,
+    "hipline": 33,
+    "arm": 44,
+    "city": "",
+    "myBenfits": 3000
+} {
+    "userId": "",
+    "openId": "123456786",
+    "preLevel": "123456787",
+    "preName": "fff",
+    "name": "ggg",
+    "phone": "",
+    "idCard": "",
+    "avator": "/images/portrait.png",
+    "photo": [
+
+    ],
+    "initialWeight": 77,
+    "waist": 23,
+    "hipline": 33,
+    "arm": 44,
+    "city": "",
+    "myBenfits": 3000
+} {
+    "userId": "",
+    "openId": "123456",
+    "preLevel": "123456789",
+    "preName": "aaa",
+    "name": "hhh",
+    "phone": "",
+    "idCard": "",
+    "avator": "/images/portrait.png",
+    "photo": [
+
+    ],
+    "initialWeight": 77,
+    "waist": 23,
+    "hipline": 33,
+    "arm": 44,
+    "city": "",
+    "myBenfits": 3000
+} {
+    "userId": "",
+    "openId": "123457",
+    "preLevel": "123456",
+    "preName": "hhh",
+    "name": "iii",
+    "phone": "",
+    "idCard": "",
+    "avator": "/images/portrait.png",
+    "photo": [
+
+    ],
+    "initialWeight": 77,
+    "waist": 23,
+    "hipline": 33,
+    "arm": 44,
+    "city": "",
+    "myBenfits": 3000
+} {
+    "userId": "",
+    "openId": "123458",
+    "preLevel": "123457",
+    "preName": "iii",
+    "name": "jjj",
+    "phone": "",
+    "idCard": "",
+    "avator": "/images/portrait.png",
+    "photo": [
+
+    ],
+    "initialWeight": 77,
+    "waist": 23,
+    "hipline": 33,
+    "arm": 44,
+    "city": "",
+    "myBenfits": 3000
+}

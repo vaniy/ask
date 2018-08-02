@@ -1,0 +1,75 @@
+{
+    "productId": "pid_1",
+    "tab": {
+        "tabId": "tid_1",
+        "tabName": "科盈焊接"
+    },
+    "category": {
+        "categoryId": "cid_1",
+        "categoryName": "手工焊接"
+    },
+    "subcategory": {
+        "subcategoryId": "MIG",
+        "subcategoryName": "浏览手工焊接设备"
+    },
+    "productTitle": "FastMig X Intelligent",
+    "productShortDescription":"高效的焊接，适合多材质车间",
+    "productDescription": "FastMig X 采用的是常规设置，这一解决方案适用于需要多工艺焊接（包括脉冲MIG和高功率）的应用",
+    "productLongDescriptionTop":"焊接车间，尤其是专门从事高负荷签约生产的车间，需要可靠的多工艺焊接，包括带有脉冲功能的熔化极气体保护焊和电弧焊，以适用各种要求高生产率、高质量和高灵活性的应用。",
+    "productLongDescriptionBottom":"我们组装的这一完美设置为碳钢、最典型的不锈钢和铝合金实现了高效的多工艺焊接。了解如何通过生产效率和焊接质量的全面提升来节省能源、时间和成本。 向下滚动了解更多信息，或者点击此处，以了解 FastMig X 的整体概念和产品系列。",
+    "productCharacter":[
+        "Kemppi ARC System 3 兼容性： 简单而精确的生产和质量管理",
+        "节省焊丝 - 电弧的能量密度高，因此可以在较窄的焊槽中使用WiseFusion",
+        "焊接效率提高 - 使用 WiseFusion 可将焊接速度提高多达 30%",
+        "WiseFusion 最多可将热输入减少 25%，并能减少变形和降低偏差",
+        "飞溅物减少，维修次数就会减少，焊后处理成本也会降低",
+        "通过与 MagTrac 焊接小车兼容实现轻便机械化： 焊接速度比完全手动焊接提升最多 5 倍",
+        "借助电弧电压测量，可轻松将焊接参数保持在 WPS 容差范围内",
+        "使用 WiseFusion 将电弧集中，焊池越小，越容易进行全位置焊接",
+        "SuperSnake 中继送丝机能够使工作范围达到 30 米，领先其他同类产品",
+        "单单逆变器技术就可节省高达 40% 的能源"
+    ],
+    "productOverView": "该软件配置专为要求严苛的车间作业而设计，支持多种材料的脉冲和双脉冲熔化极气体保护焊，用途非常广泛。 无论是制造较厚的材料还是金属薄板，这一配置都可以令脉冲焊接的质量更上一层楼。",
+    "productOverTitle":"高品质全能型脉冲焊接",
+    "productImages": "/img/FastMig-X-Intelligent_w.png",
+    "productOverViewImages": "/img/FastMig-X-Intelligent_w.png",    
+    "priority": 1,
+    "languageCode": "USA"
+}{
+    "productId": "pid_1",
+    "tab": {
+        "tabId": "tid_1",
+        "tabName": "科盈焊接"
+    },
+    "category": {
+        "categoryId": "cid_1",
+        "categoryName": "手工焊接"
+    },
+    "subcategory": {
+        "subcategoryId": "MIG",
+        "subcategoryName": "浏览手工焊接设备"
+    },
+    "productTitle": "FastMig X Intelligent",
+    "productShortDescription":"高效的焊接，适合多材质车间",
+    "productDescription": "FastMig X 采用的是常规设置，这一解决方案适用于需要多工艺焊接（包括脉冲MIG和高功率）的应用",
+    "productLongDescriptionTop":"焊接车间，尤其是专门从事高负荷签约生产的车间，需要可靠的多工艺焊接，包括带有脉冲功能的熔化极气体保护焊和电弧焊，以适用各种要求高生产率、高质量和高灵活性的应用。",
+    "productLongDescriptionBottom":"我们组装的这一完美设置为碳钢、最典型的不锈钢和铝合金实现了高效的多工艺焊接。了解如何通过生产效率和焊接质量的全面提升来节省能源、时间和成本。 向下滚动了解更多信息，或者点击此处，以了解 FastMig X 的整体概念和产品系列。",
+    "productCharacter":[
+        "Kemppi ARC System 3 兼容性： 简单而精确的生产和质量管理",
+        "节省焊丝 - 电弧的能量密度高，因此可以在较窄的焊槽中使用WiseFusion",
+        "焊接效率提高 - 使用 WiseFusion 可将焊接速度提高多达 30%",
+        "WiseFusion 最多可将热输入减少 25%，并能减少变形和降低偏差",
+        "飞溅物减少，维修次数就会减少，焊后处理成本也会降低",
+        "通过与 MagTrac 焊接小车兼容实现轻便机械化： 焊接速度比完全手动焊接提升最多 5 倍",
+        "借助电弧电压测量，可轻松将焊接参数保持在 WPS 容差范围内",
+        "使用 WiseFusion 将电弧集中，焊池越小，越容易进行全位置焊接",
+        "SuperSnake 中继送丝机能够使工作范围达到 30 米，领先其他同类产品",
+        "单单逆变器技术就可节省高达 40% 的能源"
+    ],
+    "productOverView": "该软件配置专为要求严苛的车间作业而设计，支持多种材料的脉冲和双脉冲熔化极气体保护焊，用途非常广泛。 无论是制造较厚的材料还是金属薄板，这一配置都可以令脉冲焊接的质量更上一层楼。",
+    "productOverTitle":"高品质全能型脉冲焊接",
+    "productImages": "/img/FastMig-X-Intelligent_w.png",
+    "productOverViewImages": "/img/FastMig-X-Intelligent_w.png", 
+    "priority": 1,   
+    "languageCode": "CHN"
+}

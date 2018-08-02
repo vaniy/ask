@@ -1,0 +1,114 @@
+body {
+    background: #f6f6f6;
+}
+
+.wx_container {
+    width: 100%;
+    height: 100%;
+    background: #f6f6f6;
+}
+
+.section {
+    margin-top: 10px;
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+    padding: 4% 5% 4% 5%;
+    background: white;
+}
+
+.section .left {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.section .right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.section .left .userImage {
+    width: 30%;
+    border-radius: 40px;
+}
+
+.section .left span {
+    width: 50%;
+}
+
+.section .right .arrow {
+    width: 5%
+}
+
+.section .right .rightArrow {
+    width: 5%
+}
+
+.section .left .icon {
+    width: 10%;
+}
+
+.section .right .icon {
+    width: 10%;
+}
+
+.tab {
+    display: flex;
+    text-align: center;
+    padding: 3% 0;
+}
+
+.tab span {
+    flex: 1;
+    background: white;
+    padding: 2% 0;
+}
+
+.tab span.active {
+    background: #2b7b7b;
+    color: white
+}
+
+.persons {
+    background: white;
+}
+
+.persons .person {
+    display: flex;
+    padding: 2% 0;
+}
+
+.persons .person .avator {
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.persons .person .avator img {
+    width: 76%;
+}
+
+.persons .person .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bottom {
+    width: 100%;
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: center;
+}
+
+.bottom img {
+    /* margin: 0 auto; */
+    padding-top: 20%;
+    padding-bottom: 18%;
+    /* position: absolute; */
+    bottom: 40px;
+}

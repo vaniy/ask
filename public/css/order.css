@@ -1,0 +1,76 @@
+.wx_container {
+    width: 100%;
+    height: 100%;
+}
+
+.wx_container .inputs {
+    display: flex;
+    align-items: center;
+    margin-top: 8%;
+    flex-direction: column;
+}
+
+.wx_container .inputs .one {
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 3%;
+    padding: 3%;
+}
+
+.wx_container .inputs .detail {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+
+.wx_container .inputs .detail .two {
+    width: 38%;
+    padding: 3%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.wx_container .inputs .detail span {
+    position: relative;
+    left: -10%;
+}
+
+.wx_container .btn {
+    background: #2b7b7b;
+    width: 93%;
+    margin: 0 auto;
+    /* text-align: center; */
+    border-radius: 5px;
+    margin-top: 5%;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.wx_container .custom {
+    background: #2b7b7b;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.wx_container .custom .block {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 3% 0;
+}
+
+.wx_container .custom .block .icon {
+    width: 10%;
+    padding-right: 2%;
+}
+
+.wx_container .custom .borderRight {
+    border-right: 1px solid white;
+}

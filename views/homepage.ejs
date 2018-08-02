@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://vars.hotjar.com/rcj-99d43ead6bdf30da8ed5ffcb4f17100c.html -->
+<html lang=<%=language.common.languageCode %>>
+
+<head>
+  <link rel="alternate" hreflang="zh" href="" />
+  <link rel="alternate" hreflang="en" href="" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>
+    <<%=language.common.title %>>
+  </title>
+  <link rel="shortcut icon" type="image/png" href="<!-- title-logo.png -->">
+  <link class="main-stylesheet" href="./css/menu.css" rel="stylesheet" type="text/css">
+  <link class="main-stylesheet" href="./css/pages.css" rel="stylesheet" type="text/css">
+  <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <meta name="keywords" content="">
+  <script type="text/javascript" async="" src="//munchkin.marketo.net/151/munchkin.js"></script>
+</head>
+
+<body class="lang-zh windows desktop pace-done">
+  <!-- <div class="pace pace-inactive">
+    <div class="pace-progress" data-progress-text="100%"></div> </div>-->
+  <!-- begin header -->
+  
+  <%- include header.ejs %>
+  <!-- end header-->
+
+  <!-- 开始大屏幕 -->
+  <section class="jumbotron full-width full-height" style="background-image:url(./img/homepage.jpg);background-position:center 100%;">
+    <div class="inner full-height" style="transform:translateY(0px);">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-9 col-md-7">
+            <h2 class="heading"><%=language.home.section.heading%></h2>
+            <h4 class="title"><%=language.home.section.title%></h4>
+            <h1 class="description"><%=language.home.section.description%></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-down">
+      <div class="scroll-container">
+        <span class="hover-text"><%=language.home.section.hoverText%></span>
+        <span class="kemppi-icon icon-scroll-down"></span>
+      </div>
+    </div>
+  </section>
+  <!-- 结束大屏幕 -->
+
+  <!-- 内容1——主页文字+文字介绍 -->
+  <section class="item-list-1">
+    <div class="container">
+      <!-- 主页 -->
+      <ol class="breadcrumb">
+        <li itemprop="itemListElement">
+          <a href="#" class="not-link" itemprop="item">
+            <span itemporop="name"><%=language.home.section.name%></span>
+          </a>
+          <meta itemprop="position" content="1">
+        </li>
+      </ol>
+      <!-- 文字介绍 -->
+      <div class="row row-centered element-heading">
+        <div class="col-xs-12 col-sm-9 col-md-7">
+          <p class="description">
+            <%=language.home.componeyIntro%>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 内容2——最新动态 -->
+  <section class="carousel">
+    <div class="container">
+      <!-- 最新动态 -->
+      <div class="row row-centered element-heading">
+        <div class="col-xs-12 col-sm-9 col-md-7">
+          <h2 class="sub-heading"><%=language.home.section.subHeading%></h2>
+        </div>
+      </div>
+
+      <!-- 最新动态图片 -->
+      <%-dom.newsScroll %>
+    </div>
+  </section>
+
+  <!-- 内容3 -->
+      <%-dom.newsCase %>
+</body>
+
+
+
+</html>

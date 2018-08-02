@@ -1,0 +1,132 @@
+body {
+    background: #f6f6f6;
+}
+
+.wx_container {
+    width: 100%;
+    height: 100%;
+    background: #f6f6f6;
+}
+
+.wx_container .topBanner {
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    z-index: -1;
+}
+
+.wx_container .top {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width: 100%; */
+    padding-top: 25%;
+    padding-left: 40%;
+    position: absolute;
+    top: 0;
+}
+
+.wx_container .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5% 2%;
+}
+
+.wx_container .subTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 2%;
+}
+
+.wx_container .subTitle .left {
+    padding-left: 5%;
+    flex: 1;
+}
+
+.wx_container .subTitle .right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wx_container .title .left {
+    display: flex;
+    align-items: center;
+}
+
+.wx_container .title .left .icon {
+    width: 12%;
+}
+
+.wx_container .title .right {
+    width: 40%;
+    background: #2b7b7b;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.wx_container .title .icon {
+    width: 60%;
+}
+
+.bg {
+    background: white
+}
+
+.marginTop {
+    margin-top: 3%;
+}
+
+.persons {
+    background: white;
+}
+
+.persons .person {
+    display: flex;
+    padding: 2% 0;
+}
+
+.persons .person .avator {
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.persons .person .avator img {
+    width: 76%;
+}
+
+.persons .person .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bottom {
+    width: 100%;
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: center;
+}
+
+.bottom img {
+    /* margin: 0 auto; */
+    padding-top: 20%;
+    padding-bottom: 18%;
+    /* position: absolute; */
+    bottom: 40px;
+}
+
+.withDraw {
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 2% 2% 7%;
+    /* margin-left: 5%; */
+    background: white;
+}

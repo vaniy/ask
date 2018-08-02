@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/myProfit.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <title>我的收益</title>
+</head>
+
+<body>
+    <div class="wx_container">
+        <img class="topBanner" src="/images/topbanner.png" alt="">
+        <div class="top">
+            <span class="colorWhite">收益金额</span>
+            <span class="colorOrange">¥<%=benfits%></span>
+        </div>
+        <div class="title">
+            <div class="left">
+                <img class="icon" src="/images/iconjifen.png" alt="" />
+                <span>可提现金额：¥<%=canTakeBenfits%></span>
+            </div>
+            <a href="/myWithdraw" class="right">
+                <span class="colorWhite">我要提现</span>
+            </a>
+        </div>
+        <div class="title bg">
+            <div class="left">
+                <span>分销订单</span>
+            </div>
+            <div class="">
+                <img class="icon" src="/images/arrowdown.png" alt="" />
+            </div>
+        </div>
+
+        <div class="persons marginTop">
+            <%if(data.length > 0){ data.forEach(function(item){%>
+                <div class="person">
+                    <div class="avator">
+                        <img src="<%=item.avator%>" alt="">
+                        <span><%=item.customerName%></span>
+                    </div>
+                    <div class="info fontSize14">
+                        <span class="fontBolder">客户姓名：<span class="fontNormal"><%=item.customerName%></span></span>
+                        <span class="fontBolder">客户级别：<span class="fontNormal"><%=item.customerLevel%>级</span></span>
+                        <span class="fontBolder">佣金收益：<span class="fontNormal">¥<%=item.benfits%></span></span>
+                        <span class="fontBolder">购买日期：<span class="fontNormal"><%=item.time%></span></span>
+                    </div>
+                </div>
+                <%})}%>
+                    <!-- <div class="person">
+                <div class="avator">
+                    <img src="/images/portrait.png" alt="">
+                    <span>海鸥</span>
+                </div>
+                <div class="info fontSize14">
+                    <span class="fontBolder">客户姓名：<span class="fontNormal">海鸥</span></span>
+                    <span class="fontBolder">客户级别：<span class="fontNormal">3级</span></span>
+                    <span class="fontBolder">佣金收益：<span class="fontNormal">¥300</span></span>
+                    <span class="fontBolder">购买日期：<span class="fontNormal">2018-01-10</span></span>
+                </div>
+            </div>
+            <div class="person">
+                <div class="avator">
+                    <img src="/images/portrait.png" alt="">
+                    <span>海鸥</span>
+                </div>
+                <div class="info fontSize14">
+                    <span class="fontBolder">客户姓名：<span class="fontNormal">海鸥</span></span>
+                    <span class="fontBolder">客户级别：<span class="fontNormal">3级</span></span>
+                    <span class="fontBolder">佣金收益：<span class="fontNormal">¥300</span></span>
+                    <span class="fontBolder">购买日期：<span class="fontNormal">2018-01-10</span></span>
+                </div>
+            </div> -->
+        </div>
+        <%if(myWithDraw && myWithDraw.length > 0){myWithDraw.forEach(function(item){%>
+            <div class="withDraw">
+                <span>提现（<%=item.price%>）</span>
+                <span><%=item.time%></span>
+            </div>
+            <%})}%>
+                <!-- <div class="subTitle">
+            <div class="left">
+                <span>提现(3000)</span>
+            </div>
+            <div class="right">
+                <span class="">2018-01-02</span>
+            </div>
+        </div> -->
+
+    </div>
+</body>
+
+</html>

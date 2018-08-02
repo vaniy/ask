@@ -1,0 +1,68 @@
+body {
+    background: #f6f6f6;
+}
+
+.wx_container {
+    width: 100%;
+    height: 100%;
+    background: #f6f6f6;
+}
+
+.section {
+    display: flex;
+    /* width: 100%; */
+    justify-content: space-between;
+    padding: 4% 5% 4% 5%;
+    background: white;
+}
+
+.section .left {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.section .right {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.section .left .userImage {
+    width: 30%;
+    border-radius: 40px;
+}
+
+.section .left span {
+    width: 50%;
+}
+
+.section .right .arrow {
+    width: 5%
+}
+
+.section .right .rightArrow {
+    width: 5%
+}
+
+.section .left .icon {
+    width: 10%;
+}
+
+.section .right .icon {
+    width: 10%;
+}
+
+.bottom {
+    width: 100%;
+    /* margin: 0 auto; */
+    display: flex;
+    justify-content: center;
+}
+
+.bottom img {
+    /* margin: 0 auto; */
+    padding-top: 20%;
+    padding-bottom: 18%;
+}

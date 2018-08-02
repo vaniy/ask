@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/qrcode.css">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <title>扫一扫</title>
+</head>
+
+<body>
+    <input value="<%=url%>" type="text" hidden/>
+    <input value="<%=shareUrl%>" type="text" hidden/>
+    <div class="share">
+        <span>分享链接给好友</span>
+        <span>分享链接到朋友圈</span>
+    </div>
+    <%if(qrcode === ''){%>
+        <div id="qrcode" style="margin:0 auto"></div>
+
+        <%}else{%>
+            <div class="qrcode">
+                <img src="/images/<%=qrcode%>" alt="">
+                <span>长按扫一扫关注微信公众号</span>
+            </div>
+            <%}%>
+</body>
+<script src="/javascripts/jquery-3.0.0.min.js"></script>
+<script src="/javascripts/qrcode.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var url = $('input')[0].value;
+        var shareUrl = $('input')[1].value;
+        $.ajax({
+            url: '/jssdk'
+            , type: 'get'
+            , dataType: 'json'
+            , data: {
+                // url: location.href.split('#')[0]
+                url: shareUrl
+            },
+            success: function (data) {
+                wx.config({
+                    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: data.appId, // 必填，公众号的唯一标识
+                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                    signature: data.signature,// 必填，签名
+                    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表
+                });
+                var sdata = {
+                    title: '关注她多可',
+                    desc: '健康管理',
+                    link: url,
+                    imgUrl: 'http://www.taduoke.com/images/product.png',
+                };
+                wx.ready(function () {
+                    wx.onMenuShareTimeline(sdata);
+                    wx.onMenuShareAppMessage(sdata);
+                });
+            }
+        });
+        var qrcode = new QRCode("qrcode", {
+            text: url,
+            width: 256,
+            height: 256,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    });
+</script>
+
+</html>

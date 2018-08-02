@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="keywords" content=" react training">
+    <meta name="description" content=" react training ">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                document
+                    .write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+            } else {
+                document
+                    .write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document
+                .write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+    <style type='text/css'>
+        body {
+            /* background: url('/bg.png') no-repeat center bottom fixed;
+            background-size: 100%; */
+            background-color: #fdfdfd
+        }
+
+        nav {
+            /* width: 100%; */
+            display: flex;
+            flex-direction: row;
+            border-bottom: #ececec solid 1.5vh;
+            padding: 2vh 4vh;
+            justify-content: space-between;
+        }
+
+        nav .flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        nav .left {
+            color: #666666;
+            font-size: 5vw;
+        }
+
+        nav .left img {
+            width: 5vw;
+            height: 5vw;
+        }
+
+        nav .left span {
+            padding-left: 20px;
+        }
+
+        nav .right a {
+            padding-right: 20px;
+            text-decoration: none;
+            color: #8e8e8e;
+            font-size: 4vw;
+        }
+
+        section {
+            display: flex;
+            /* align-items: center; */
+            flex-direction: column;
+        }
+
+        section h1 {
+            font-size: 6vw;
+            line-height: 0;
+            color: #b2b2b2;
+        }
+
+        section .title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 1vh 10vw;
+        }
+
+        section .title .tips {
+            display: flex;
+            align-items: center;
+        }
+
+        section .title .tips span {
+            margin-left: 1vw;
+            font-size: 2.5vw;
+            color: #666666
+        }
+
+        section .blueCircle {
+            width: 2vw;
+            height: 2vw;
+            background: #005099;
+            border-radius: 50px;
+            margin-left: 2vw;
+        }
+
+        section .orangeCircle {
+            width: 2vw;
+            height: 2vw;
+            background: #ffba00;
+            border-radius: 50px;
+            margin-left: 2vw;
+        }
+
+        section .greyCircle {
+            width: 2vw;
+            height: 2vw;
+            background: #a0a0a0;
+            border-radius: 50px;
+            margin-left: 2vw;
+        }
+
+        section .timeContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            border-bottom: #b2b2b2 solid 1px;
+            padding: 0 8vw;
+        }
+
+        section .timeContainer .time {
+            width: 10vw;
+            height: 10vw;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        section .currentTime span {
+            font-size: 4vw;
+            color: #666666;
+            border-bottom: #b2b2b2 solid 1px;
+        }
+
+        section .currentTime {
+            display: flex;
+            justify-content: flex-end;
+            margin: 1vh 8vw;
+        }
+
+        section .timeContainer .time span {
+            font-size: 4vw;
+        }
+
+        section .timeContainer .time a{
+            text-decoration: none;
+            color:white
+        }
+
+        section .timeContainer .time img{
+            width: 4vw;
+        }
+
+        section .timeContainer.number {
+            border-bottom: 0;
+            color: white;
+            margin-top: 2vh;
+        }
+
+        section .timeContainer.number .bgGrey {
+            background: #a0a0a0;
+            border-radius: 50px;
+        }
+
+        section .timeContainer.number .bgOrange {
+            background: #ffba00;
+            border-radius: 50px;
+        }
+
+        section .timeContainer.number .bgBlue {
+            background: #005099;
+            border-radius: 50px;
+        }
+
+        section .plan .content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        section .plan .planContainer {
+            display: flex;
+            flex-direction: row;
+            overflow: scroll;
+        }
+
+        section .plan .title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-top: #b2b2b2 solid 1px;
+            padding: 2vh 4vw;
+            margin-top: 2vh;
+            align-items: center
+        }
+
+        section .plan .title .titleText {
+            color: #666666;
+            font-size: 4vw;
+        }
+
+        section .plan .title .titleText2 {
+            color: #a0a0a0;
+            font-size: 2.5vw;
+        }
+
+        section .plan .content .book {
+            display: flex;
+            flex-direction: column;
+            margin-left: 4vw;
+            width: 20vw;
+            justify-content: space-between;
+        }
+
+        section .plan .content .book.blueBg {
+            background: #59c1cd;
+            border-radius: 5px
+        }
+
+        section .plan .content .book.darkRedBg {
+            background: #771c4b;
+            border-radius: 5px
+        }
+
+        section .plan .content .book.darkBlueBg {
+            background: #005099;
+            border-radius: 5px
+        }
+
+        section .plan .content .book.redBg {
+            background: #cb2471;
+            border-radius: 5px
+        }
+
+        section .plan .content .book.orangeBg {
+            background: #ec6728;
+            border-radius: 5px
+        }
+
+        section .plan .content .book.greyBg {
+            background: #b0b0b0;
+            border-radius: 5px
+        }
+
+        section .plan .content .book .status {
+            display: flex;
+            justify-content: flex-end;
+            color: white;
+            /* padding-left: 8vw; */
+        }
+
+        section .plan .content .book .status span {
+            background: #23b495;
+            padding: 0.5vh 1.5vw;
+            border-top-right-radius: 5px;
+        }
+
+        section .plan .content .book .status span.noread {
+            background: #35659e
+        }
+
+        section .plan .content .book .coverImg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2vh 0;
+        }
+
+        section .plan .content .book .coverImg img {
+            width: 9vw;
+        }
+
+        section .plan .content .book .during {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(58, 57, 62, .3);
+            padding: 0.5vh 0;
+            color: white;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        section .plan .content .book .during span {
+            font-size: 2.5vw;
+        }
+
+        section .empty {
+            height: 20vh;
+            width: 100%;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 1.5vh 0;
+            /* justify-content: space-between; */
+            background-color: #e5e5e5;
+            width: 100%;
+        }
+
+        footer .bottom {
+            text-decoration: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer .bottom span {
+            color: #666666;
+            font-size: 4vw;
+        }
+    </style>
+    <!-- The Fonts -->
+    <!--<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet">-->
+    <!-- The Main CSS File -->
+    <!--<link rel="stylesheet" href="/static/CSS/style.css">
+    <link rel="stylesheet" href="/static/CSS/button.css">-->
+</head>
+
+<body style="margin:0; flex:1">
+    <nav>
+        <div class="flex left">
+            <img src="/images/daohang.png" alt="">
+            <span>丹纳赫《创新者的基因》</span>
+        </div>
+        <div class="flex right">
+        </div>
+    </nav>
+    <div id="root">
+        <section>
+            <div class="title">
+                <h1>点击日期进入当日阅读</h1>
+                <div class="tips">
+                    <div class="blueCircle"></div>
+                    <span>当日已读</span>
+                    <div class="orangeCircle"></div>
+                    <span>补读</span>
+                    <div class="greyCircle"></div>
+                    <span>未完成</span>
+                </div>
+            </div>
+            <div class="timeContainer">
+                <div class="time">
+                    <span>一</span>
+                </div>
+                <div class="time">
+                    <span>二</span>
+                </div>
+                <div class="time">
+                    <span>三</span>
+                </div>
+                <div class="time">
+                    <span>四</span>
+                </div>
+                <div class="time">
+                    <span>五</span>
+                </div>
+                <div class="time">
+                    <span>六</span>
+                </div>
+                <div class="time">
+                    <span>日</span>
+                </div>
+            </div>
+            <div class="currentTime">
+                <span>2018年8月</span>
+            </div>
+
+            <div class="timeContainer number">
+                <div class="time">
+                    <span></span>
+                </div>
+                <div class="time">
+                    <span></span>
+                </div>
+                <div class="time bgGrey">
+                    <span>1</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>2</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>3</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>4</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>5</span>
+                </div>
+            </div>
+
+            <div class="timeContainer number">
+                <div class="time bgGrey">
+                    <span>6</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>7</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>8</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>9</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>10</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>11</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>12</span>
+                </div>
+            </div>
+
+            <div class="timeContainer number">
+                <div class="time <%=user.progress[0].color || 'bgGrey'%>">
+                    <%if(user.progress[0].unLocked){%><a href="/chapter?day=1"><span>13</span></a><% }else{%>
+                        <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[1].color || 'bgGrey'%>">
+                        <%if(user.progress[1].unLocked) {%><a href="/chapter?day=2"><span>14</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[2].color || 'bgGrey'%>">
+                        <%if(user.progress[2].unLocked) {%><a href="/chapter?day=3"><span>15</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[3].color || 'bgGrey'%>">
+                        <%if(user.progress[3].unLocked) {%><a href="/chapter?day=4"><span>16</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[4].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=5"><span>17</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time bgGrey">
+                    <span>18</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>19</span>
+                </div>
+            </div>
+
+            <div class="timeContainer number">
+                <div class="time <%=user.progress[5].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=6"><span>20</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[6].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=7"><span>21</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[7].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=8"><span>22</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[8].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=9"><span>23</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[9].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>24</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time bgGrey">
+                    <span>25</span>
+                </div>
+                <div class="time bgGrey">
+                    <span>26</span>
+                </div>
+            </div>
+
+            <div class="timeContainer number">
+                <div class="time <%=user.progress[10].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>27</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[11].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>28</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[12].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>29</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[13].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>30</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time <%=user.progress[14].color || 'bgGrey'%>">
+                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>31</span></a><% }else{%>
+                            <img src="/images/dayLock.png" alt=""><%}%>
+                </div>
+                <div class="time">
+                    <span></span>
+                </div>
+                <div class="time">
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="plan">
+                <div class="title">
+                    <span class="titleText">本期计划</span>
+                    <span class="titleText2">点击图标跳转相对应的阅读日期</span>
+                </div>
+                <div class="planContainer">
+                    <div class="content">
+                        <div class="book blueBg">
+                            <div class="status">
+                                <span class="<%=mission[0] === '未读' ? 'noread':'' %>"><%=mission[0] %></span>
+                            </div>
+                            <div class="coverImg">
+                                <img src="<%=mission[0] === '未读' ?  '/images/planLock.png':'/images/1.png' %>" alt="" />
+                            </div>
+                            <div class="during">
+                                <span>8.13 - 8.15</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="book darkBlueBg">
+                            <div class="status">
+                                <span class="<%=mission[1] === '未读' ? 'noread':'' %>"><%=mission[1] %></span>
+                            </div>
+                            <div class="coverImg">
+                                <img src="<%=mission[1] === '未读' ?  '/images/planLock.png':'/images/2.png' %>" alt="" />
+                            </div>
+                            <div class="during">
+                                <span>8.16 - 8.20</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="book redBg">
+                            <div class="status">
+                                <span class="<%=mission[2] === '未读' ? 'noread':'' %>"><%=mission[2] %></span>
+                            </div>
+                            <div class="coverImg">
+                                <img src="<%=mission[2] === '未读' ?  '/images/planLock.png':'/images/3.png' %>" alt="" />
+                            </div>
+                            <div class="during">
+                                <span>8.21 - 8.23</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="book darkRedBg">
+                            <div class="status">
+                                <span class="<%=mission[3] === '未读' ? 'noread':'' %>"><%=mission[3] %></span>
+                            </div>
+                            <div class="coverImg">
+                                <img src="<%=mission[3] === '未读' ?  '/images/planLock.png':'/images/4.png' %>" alt="" />
+                            </div>
+                            <div class="during">
+                                <span>8.24 - 8.28</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="book orangeBg">
+                            <div class="status">
+                                <!-- <span class="noread">未读</span> -->
+                                <span class="<%=mission[4] === '未读' ? 'noread':'' %>"><%=mission[4] %></span>
+                            </div>
+                            <div class="coverImg">
+                                <img src="<%=mission[4] === '未读' ?  '/images/planLock.png':'/images/5.png' %>" alt="" />
+                            </div>
+                            <div class="during">
+                                <span>8.29 - 8.31</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="content">
+                        <div class="book greyBg">
+                            <div class="status">
+                                <span class="noread">未读</span>
+                            </div>
+                            <div class="coverImg">
+                                <img src="/images/planLock.png" alt="" />
+                            </div>
+                            <div class="during">
+                                <span>8.25 - 8.27</span>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="empty"></div>
+        </section>
+    </div>
+
+    <footer>
+        <a href="/read" class="bottom">
+            <img src="/images/homeNormal.png" alt="">
+            <span>今日阅读</span>
+        </a>
+        <a href="/plan" class="bottom">
+            <img src="/images/plan.png" alt="">
+            <span>计划</span>
+        </a>
+        <a href="/myAccount" class="bottom">
+            <img src="/images/accountNormal.png" alt="">
+            <span>我的</span>
+        </a>
+    </footer>
+    <!--<footer>
+		<div class="wrapper">
+			<span class="copyright">
+				COPYRIGHT © 2018 Newegg Inc
+			</span>
+		</div>
+	</footer>-->
+</body>
+
+</html>

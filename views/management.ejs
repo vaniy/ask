@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/management.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style - all.css">
+</head>
+
+<body>
+    <!-- <div id="modify">
+<a href="" class="modifyInfor">Modify</a>
+</div> -->
+    <%-dom %>
+
+        <script src="/javascripts/jquery-3.0.0.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.left.btn.user').click(function() {
+                    $('.user_container').html('');
+                    $('.money_main.main').hide();
+                    $('.order_main.main').hide();
+                    $('.user_main.main').show();
+                    $.ajax({
+                        url: '/management/api/getAllUser',
+                        type: 'Get',
+                        data: {
+                            terribleterribledamage: 1
+                        },
+                        dataType: 'JSON',
+                        cache: false,
+                        success: function(result) {
+                            if (result && result.data && result.data.length > 0) {
+                                result.data.map((person, index) => {
+                                    var jDom = $('<div class="section"><span>用户名:</span><input type="text" class="userinfo_' + index + '" data-target="name"/>' +
+                                        '</div><div class="section"><span>手机号:</span><input type="text" class="userinfo_' + index + '" data-target="phone"/>' +
+                                        '</div><div class="section"><span>身份证:</span><input type="text" class="userinfo_' + index + '" data-target="idCard"/>' +
+                                        '</div><div class="section"><span>注册时间:</span><input type="text" class="userinfo_' + index + '" data-target="createTime"/>' +
+                                        '</div><div class="section"><span>账户余额:</span><input type="text" class="userinfo_' + index + '" data-target="myBenfits"/>' +
+                                        '</div><div class="section"><span>上级用户:</span><input type="text" class="userinfo_' + index + '" data-target="preName"/>' +
+                                        '</div></br>' // '<button class="delete deleteUserinfo_' + index + '">删除用户</button></div></br>'
+                                    )
+                                    var dom = jDom.find('.userinfo_' + index + '');
+                                    for (var i = 0; i < dom.length; i++) {
+                                        if (dom[i] && dom[i].getAttribute('data-target') && person[dom[i].getAttribute('data-target')]) {
+                                            dom[i].value = person[dom[i].getAttribute('data-target')];
+                                        }
+                                        // else if (dom[i].getAttribute('data-target') === 'height' || dom[i].getAttribute('data-target') === 'weight' || dom[i].getAttribute('data-target') === 'special') {
+                                        //     dom[i].value = (person.body[dom[i].getAttribute('data-target')]);
+                                        // }
+                                    }
+                                    $('.user_container').append(jDom);
+                                })
+                            }
+                        },
+                        error: function(data) {
+                            alert('查询失败')
+                        }
+                    })
+                });
+
+                $('.left.btn.money').click(function() {
+                    $('.money_container').html('');
+                    $('.money_main.main').show();
+                    $('.order_main.main').hide();
+                    $('.user_main.main').hide();
+                    $.ajax({
+                        url: '/management/api/getAllWithDraw',
+                        type: 'Get',
+                        data: {
+                            terribleterribledamage: 1
+                        },
+                        dataType: 'JSON',
+                        cache: false,
+                        success: function(result) {
+                            if (result && result.data && result.data.length > 0) {
+                                result.data.map((order, index) => {
+                                    var jDom = $('<div class="section"><span>用户名:</span><input type="text" class="moneyInfo_' + index + '" data-target="name"/>' +
+                                        '</div><div class="section" style="display:none"><span>id:</span><input type="text" class="moneyInfo_' + index + '" data-target="withDrawId"/>' +
+                                        '</div><div class="section"><span>银行卡:</span><input type="text" class="moneyInfo_' + index + '" data-target="card"/>' +
+                                        '</div><div class="section"><span>开户银行:</span><input type="text" class="moneyInfo_' + index + '" data-target="bank"/>' +
+                                        '</div><div class="section"><span>提现金额:</span><input type="text" class="moneyInfo_' + index + '" data-target="price"/>' +
+                                        '</div><div class="section"><span>申请时间:</span><input type="text" class="moneyInfo_' + index + '" data-target="time"/>' +
+                                        '</div><div class="section"><span>状态:</span><select class="moneyInfo_' + index + '" data-target="status"><option value="1">进行中</option>' +
+                                        '<option value="2">成功</option></select><button class="submitMoneyInfo_' + index + '">提交修改</button></div></br>')
+                                    var dom = jDom.find('.moneyInfo_' + index + '');
+                                    for (var i = 0; i < dom.length; i++) {
+                                        if (dom[i] && dom[i].getAttribute('data-target') && order[dom[i].getAttribute('data-target')]) {
+                                            if (dom[i].getAttribute('data-target') === 'status') {
+                                                switch (order[dom[i].getAttribute('data-target')]) {
+                                                    case 0:
+                                                    default:
+                                                    case 1:
+                                                        dom[i].selectedIndex = 0;
+                                                        break;
+                                                    case 2:
+                                                        dom[i].selectedIndex = 1;
+                                                        break;
+                                                }
+                                            } else {
+                                                dom[i].value = order[dom[i].getAttribute('data-target')];
+                                            }
+                                        }
+                                    }
+
+                                    jDom.find('.submitMoneyInfo_' + index).click(function() {
+                                        var self = this;
+                                        var idx = self.className.replace('submitMoneyInfo_', '');
+                                        var ddom = $('.moneyInfo_' + idx);
+                                        var data = {};
+                                        for (var i = 0; i < ddom.length; i++) {
+                                            if (ddom[i] && ddom[i].value && ddom[i].value.length > 0) {
+                                                data[ddom[i].getAttribute('data-target')] = ddom[i].value
+                                            }
+                                        }
+                                        $.ajax({
+                                            url: '/management/api/updateWithDraw',
+                                            type: 'GET',
+                                            data: data,
+                                            dataType: 'JSON',
+                                            cache: false,
+                                            success: function(data) {
+                                                if (data && data.status === 'success') {
+                                                    alert('修改成功')
+                                                } else {
+                                                    alert('修改失败')
+                                                }
+                                            },
+                                            error: function(data) {
+                                                alert('internal server error')
+                                            }
+                                        })
+                                    });
+                                    $('.money_container').append(jDom);
+                                })
+                            }
+                        },
+                        error: function(data) {
+                            alert('查询失败')
+                        }
+                    })
+                })
+                $('.left.btn.order').click(function() {
+                    $('.order_container').html('');
+                    $('.money_main.main').hide();
+                    $('.user_main.main').hide();
+                    $('.order_main.main').show();
+                    $.ajax({
+                        url: '/management/api/getAllOrder',
+                        type: 'Get',
+                        data: {
+                            terribleterribledamage: 1
+                        },
+                        dataType: 'JSON',
+                        cache: false,
+                        success: function(result) {
+                            if (result && result.status === 'success' && result.data && result.data.length > 0) {
+                                result.data.map((order, index) => {
+                                    var jDom = $('<div class="section"><span>用户名:</span><input type="text" class="orderInfo_' + index + '" data-target="name"/>' +
+                                        '</div><div class="section" style="display:none"><span>id:</span><input type="text" class="orderInfo_' + index + '" data-target="orderId"/>' +
+                                        '</div><div class="section"><span>地址:</span><input type="text" class="orderInfo_' + index + '" data-target="address"/>' +
+                                        '</div><div class="section"><span>手机号:</span><input type="text" class="orderInfo_' + index + '" data-target="phone"/>' +
+                                        '</div><div class="section"><span>下单时间:</span><input type="text" class="orderInfo_' + index + '" data-target="createTime"/>' +
+                                        '</div><div class="section"><span>金额:</span><input type="text" class="orderInfo_' + index + '" data-target="cost"/>' +
+                                        '</div><div class="section"><span>状态:</span><select class="orderInfo_' + index + '" data-target="status"><option value="1">已付款</option>' +
+                                        '<option value="2">已发货</option></select><button class="submitOrderInfo_' + index + '">提交修改</button></div></br>')
+                                    var dom = jDom.find('.orderInfo_' + index + '');
+                                    for (var i = 0; i < dom.length; i++) {
+                                        if (dom[i] && dom[i].getAttribute('data-target') && order[dom[i].getAttribute('data-target')]) {
+                                            if (dom[i].getAttribute('data-target') === 'status') {
+                                                switch (order[dom[i].getAttribute('data-target')]) {
+                                                    case 0:
+                                                    default:
+                                                    case 1:
+                                                        dom[i].selectedIndex = 0;
+                                                        break;
+                                                    case 2:
+                                                        dom[i].selectedIndex = 1;
+                                                        break;
+                                                }
+                                            } else {
+                                                dom[i].value = order[dom[i].getAttribute('data-target')];
+                                            }
+                                        }
+                                    }
+                                    jDom.find('.submitOrderInfo_' + index).click(function() {
+                                        var self = this;
+                                        var idx = self.className.replace('submitOrderInfo_', '');
+                                        var ddom = $('.orderInfo_' + idx);
+                                        var data = {};
+                                        for (var i = 0; i < ddom.length; i++) {
+                                            if (ddom[i] && ddom[i].value && ddom[i].value.length > 0) {
+                                                data[ddom[i].getAttribute('data-target')] = ddom[i].value
+                                            }
+                                        }
+                                        $.ajax({
+                                            url: '/management/api/updateOrder',
+                                            type: 'GET',
+                                            data: data,
+                                            dataType: 'JSON',
+                                            cache: false,
+                                            success: function(data) {
+                                                if (data && data.status === 'success') {
+                                                    alert('修改成功')
+                                                } else {
+                                                    alert('修改失败')
+                                                }
+                                            },
+                                            error: function(data) {
+                                                alert('internal server error')
+                                            }
+                                        })
+                                    });
+                                    $('.order_container').append(jDom);
+                                })
+                            }
+                        },
+                        error: function(data) {
+
+                        }
+                    })
+
+
+                })
+            })
+        </script>
+</body>
+
+</html>

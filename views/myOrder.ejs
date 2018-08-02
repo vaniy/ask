@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/myOrder.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <title>个人中心</title>
+</head>
+
+<body>
+    <div class="wx_container">
+        <div class="section">
+            <div class="left">
+                <img class="icon" src="/images/iconjifen.png" alt="" />
+                <span class="userName paddingLeft">我的订单</span>
+            </div>
+            <a href="/myOrder" class="right">
+                <img class="rightArrow" src="/images/arrowdown.png" alt="" />
+            </a>
+        </div>
+        <% if(data && data.length >0){data.forEach(function(item){%>
+            <div class="item">
+                <div class="top">
+                    <span class="title fontSize12">她朵可产品</span>
+                    <span class="status fontSize14">订单状态：<%=item.status == 1 ? '已付款': '已发货'%></span>
+                </div>
+                <div class="detail">
+                    <div class="left">
+                        <img src="/images/product.png" alt="">
+                        <div class="info">
+                            <span class="qty fontSize10">产品数量：1盒</span>
+                            <span class="time fontSize12">购买日期：<span><%=item.createTime%></span></span>
+                        </div>
+                    </div>
+                    <div class="right fontSize12">
+                        <span><%=item.cost%></span>
+                    </div>
+                </div>
+            </div>
+            <%})}%>
+    </div>
+</body>
+
+</htm

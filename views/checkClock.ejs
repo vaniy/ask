@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/css/checkClock.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <title>打卡计划</title>
+</head>
+
+<body>
+    <div class="wx_container">
+        <img class="topBanner" src="/images/clock.png" alt="">
+        <div class="top">
+            <span class="title">她朵可</span>
+            <div class="right">
+                <span class="day colorOrange fontSize20">42天<span class="colorWhite fontSize16">打卡计划</span></span>
+                <span class="fontSize10 colorGrey">初始体重：<%=result.data && result.data.initialWeight ? result.data.initialWeight:0%>公斤</span>
+            </div>
+        </div>
+        <div class="check">
+            <div class="title">
+                <img class="icon" src="/images/iconjifen.png" alt="" />
+                <span>打卡记录表</span>
+            </div>
+            <div class="tables fontSize12">
+                <table>
+                    <tr>
+                        <th>第几天</th>
+                        <th>时间</th>
+                        <th>体重</th>
+                        <th>早餐</th>
+                        <th>中餐</th>
+                        <th>晚餐</th>
+                        <th>饮水量</th>
+                        <th>睡觉时间</th>
+                        <th>排便是否正常</th>
+                    </tr>
+                    <%if(result.data && result.data.clock && result.data.clock.length>0){ result.data.clock.forEach(function(item){%>
+                        <tr>
+                            <td>
+                                <%=item.id%>
+                            </td>
+                            <td>
+                                <%=item.day ? item.day.replace(new Date().getFullYear()+'-', '') : ''%>
+                            </td>
+                            <td>
+                                <%=item.weight%>
+                            </td>
+                            <td>
+                                <%=item.breadfast%>
+                            </td>
+                            <td>
+                                <%=item.launch%>
+                            </td>
+                            <td>
+                                <%=item.dinner%>
+                            </td>
+                            <td>
+                                <%=item.drink%>
+                            </td>
+                            <td>
+                                <%=item.sleep%>
+                            </td>
+                            <td>
+                                <%=item.health ? '是':'否'%>
+                            </td>
+                        </tr>
+                        <%})}%>
+                            <!-- 
+                    <tr>
+                        <td>02</td>
+                        <td>01-10</td>
+                        <td>78</td>
+                        <td>粥</td>
+                        <td>米饭</td>
+                        <td>面条</td>
+                        <td>1.5</td>
+                        <td>11点</td>
+                        <td>是</td>
+                    </tr>
+                    <tr>
+                        <td>03</td>
+                        <td>01-10</td>
+                        <td>78</td>
+                        <td>粥</td>
+                        <td>米饭</td>
+                        <td>面条</td>
+                        <td>1.5</td>
+                        <td>11点</td>
+                        <td>是</td>
+                    </tr> -->
+                </table>
+                <!-- <div class="line">
+                    <span class="three">第几天</span>
+                    <span class="two">时间</span>
+                    <span class="two">体重</span>
+                    <span class="two">早餐</span>
+                    <span class="two">中餐</span>
+                    <span class="two">晚餐</span>
+                    <span class="four">饮水量/L</span>
+                    <span class="four">睡觉时间</span>
+                    <span class="six">排便是否正常</span>
+                </div>
+                <div class="line">
+                    <span class="three">01</span>
+                    <span class="two">01-10</span>
+                    <span class="two">78</span>
+                    <span class="two">粥</span>
+                    <span class="two">米饭</span>
+                    <span class="two">面条</span>
+                    <span class="four">1.5</span>
+                    <span class="four">11点</span>
+                    <span class="six">是</span>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
