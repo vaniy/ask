@@ -37,7 +37,21 @@ router.get('/sign', function (req, res) {
 })
 
 router.get('/home', function (req, res) {
-    res.render('home', {})
+    if (req.cookies && req.cookies.user) {
+        var host = req.headers.host;
+        var tep = `http://dlh.viakids.cn/getWechatUserInfo&email=${req.cookies.user}&url=home`;
+        // if (req.query.openId) {
+        //     tep += '&preLevel=' + req.query.openId;
+        // }
+        var rUrl = encodeURIComponent(tep);
+        console.log('rul', rUrl)
+        var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + aotuConfig.appid + '&redirect_uri=' + rUrl + '&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect';
+        res.redirect(url);
+    }
+    else {
+        res.render('sign', {})
+    }
+    // res.render('home', {})
 })
 
 router.get('/chapter', function (req, res) {
@@ -146,19 +160,19 @@ router.get('/login', function (req, res, next) {
     }
     else if (req.query.email) {
         dbHandler.findUser(req, res, () => {
-            // if (true) {
-            //     dbHandler.addUser(req, res, { name: req.query.name, team: req.query.team, phone: req.query.phone })
+            // if (req.query.url) {
+            dbHandler.addUser(req, res, { name: req.query.name, team: req.query.team, phone: req.query.phone })
             //     return;
             // }
-            var host = req.headers.host;
-            var tep = `http://dlh.viakids.cn/getWechatUserInfo?url=${req.query.url}&email=${req.query.email}&team=${req.query.team}&name=${req.query.name}&phone=${req.query.phone}`;
-            // if (req.query.openId) {
-            //     tep += '&preLevel=' + req.query.openId;
-            // }
-            var rUrl = encodeURIComponent(tep);
-            console.log('rul', rUrl)
-            var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + aotuConfig.appid + '&redirect_uri=' + rUrl + '&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect';
-            res.redirect(url);
+            // var host = req.headers.host;
+            // var tep = `http://dlh.viakids.cn/getWechatUserInfo&email=${req.query.email}&url=${req.query.rurl}`;
+            // // if (req.query.openId) {
+            // //     tep += '&preLevel=' + req.query.openId;
+            // // }
+            // var rUrl = encodeURIComponent(tep);
+            // console.log('rul', rUrl)
+            // var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + aotuConfig.appid + '&redirect_uri=' + rUrl + '&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect';
+            // res.redirect(url);
         })
     }
     else {
@@ -186,7 +200,8 @@ router.get('/getWechatUserInfo', function (req, res) {
                             // req.session.user.openId = openid;
                             console.log('info', info)
 
-                            dbHandler.addUser(req, res, { name: req.query.name, team: req.query.team, phone: req.query.phone, avator: info.avator })
+                            dbHandler.addUser(req, res, { avator: info.avator });
+                            res.redirect('/' + req.query.url);
                             // dbHandler.checkUserExists(openid, JSON.parse(info), req, res, function (info, req, res) {
                             //     if (!info) {
                             //         res.redirect('/' + req.query.url);
