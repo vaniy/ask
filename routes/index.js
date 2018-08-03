@@ -144,7 +144,7 @@ router.get('/result', function (req, res) {
         dbHandler.getUser(req, res, req.cookies.user, 'result')
     }
     else {
-        res.redirect('sign')
+        res.redirect('/sign')
     }
     // res.render('result', {})
 })
@@ -158,7 +158,7 @@ router.get('/userInfo', function (req, res) {
         dbHandler.getUser(req, res, req.cookies.user, 'userInfo')
     }
     else {
-        res.redirect('sign')
+        res.redirect('/sign')
     }
 })
 
@@ -244,7 +244,7 @@ router.get('/getUser', function (req, res) {
         dbHandler.getUser(req, res, req.cookies.user)
     }
     else {
-        res.redirect('sign')
+        res.redirect('/sign')
     }
 })
 
