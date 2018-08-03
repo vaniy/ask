@@ -93,6 +93,9 @@
             display: flex;
             font-size: 4vw;
             justify-content: center;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
         }
 
         .form .option .select select {
@@ -201,8 +204,8 @@
                         console.log('res', res)
                         if (res && res.status && res.msg) {
                             alert(res.msg)
-                            if(res.status === 'success'){
-                                location.href='/home'
+                            if (res.status === 'success') {
+                                location.href = '/home'
                             }
                         }
                     }
