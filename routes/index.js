@@ -205,6 +205,7 @@ router.get('/getWechatUserInfo', function (req, res) {
                             // req.session.user.openId = openid;
                             console.log('info', info)
 
+                            res.cookie('hasAvator', 1, { maxAge: 60 * 24 * 60 * 60 * 1000 })
                             dbHandler.addUser(req, res, { avator: info.avator }, true);
                             // dbHandler.checkUserExists(openid, JSON.parse(info), req, res, function (info, req, res) {
                             //     if (!info) {
