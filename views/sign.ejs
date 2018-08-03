@@ -40,7 +40,6 @@
             /* background: url('/images/bg.png') no-repeat center bottom fixed;
             background-size: 100%; */
             /* overflow: hidden; */
-            min-height:100%
         }
 
         header {
@@ -190,6 +189,8 @@
 <script src="/javascripts/jquery-3.0.0.min.js"></script>
 <script>
     $(document).ready(function () {
+        let height = document.documentElement.clientHeight;
+        $('body')[0].style.height = `${height}px`
         $('.btn').click(function (e) {
             var name = $('.name')[0].value;
             var email = $('.email')[0].value;
