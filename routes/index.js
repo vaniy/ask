@@ -36,6 +36,12 @@ router.get('/sign', function (req, res) {
     }
 })
 
+router.get('/clearCookie', function(req, res){
+    res.cookie('hasAvator', null, { maxAge:1000 })
+    res.cookie('user', null, { maxAge:1000 })
+    res.send('ok')
+})
+
 router.get('/home', function (req, res) {
     if (req.cookies && req.cookies.user) {
         if (req.cookies.hasAvator && req.cookies.hasAvator == 1) {
