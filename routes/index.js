@@ -54,7 +54,7 @@ router.get('/home', function (req, res) {
         }
     }
     else {
-        res.render('sign', {})
+        res.redirect('sign', {})
     }
     // res.render('home', {})
 })
@@ -205,8 +205,7 @@ router.get('/getWechatUserInfo', function (req, res) {
                             // req.session.user.openId = openid;
                             console.log('info', info)
 
-                            dbHandler.addUser(req, res, { avator: info.avator });
-                            res.redirect('/' + req.query.url);
+                            dbHandler.addUser(req, res, { avator: info.avator }, true);
                             // dbHandler.checkUserExists(openid, JSON.parse(info), req, res, function (info, req, res) {
                             //     if (!info) {
                             //         res.redirect('/' + req.query.url);
