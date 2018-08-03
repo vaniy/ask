@@ -209,10 +209,11 @@ router.get('/getWechatUserInfo', function (req, res) {
                         .then(function (info) {
                             // req.session.user = {};
                             // req.session.user.openId = openid;
-                            console.log('info', info)
-                            console.log('headimgurl', info.headimgurl)
+                            let a = JSON.parse(info) || {};
+                            console.log('info', a)
+                            console.log('headimgurl', a.headimgurl)
                             res.cookie('hasAvator', 1, { maxAge: 60 * 24 * 60 * 60 * 1000 })
-                            dbHandler.addUser(req, res, { avator: info.headimgurl }, true);
+                            dbHandler.addUser(req, res, { avator: a.headimgurl }, true);
                             // dbHandler.checkUserExists(openid, JSON.parse(info), req, res, function (info, req, res) {
                             //     if (!info) {
                             //         res.redirect('/' + req.query.url);
