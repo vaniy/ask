@@ -43,7 +43,7 @@ router.get('/home', function (req, res) {
         }
         else {
             var host = req.headers.host;
-            var tep = `http://dlh.viakids.cn/getWechatUserInfo&email=${req.cookies.user}&url=home`;
+            var tep = `http://dlh.viakids.cn/getWechatUserInfo?email=${req.cookies.user}&url=home`;
             // if (req.query.openId) {
             //     tep += '&preLevel=' + req.query.openId;
             // }
