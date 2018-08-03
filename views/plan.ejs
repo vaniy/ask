@@ -141,8 +141,8 @@
         }
 
         section .timeContainer .time {
-            width: 10vw;
-            height: 10vw;
+            width: 8vw;
+            height: 8vw;
             display: flex;
             justify-content: center;
             align-items: center
@@ -164,12 +164,12 @@
             font-size: 4vw;
         }
 
-        section .timeContainer .time a{
+        section .timeContainer .time a {
             text-decoration: none;
-            color:white
+            color: white
         }
 
-        section .timeContainer .time img{
+        section .timeContainer .time img {
             width: 4vw;
         }
 
@@ -324,6 +324,7 @@
         }
 
         footer .bottom {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
             text-decoration: none;
             flex: 1;
             display: flex;
@@ -332,7 +333,7 @@
             justify-content: center;
         }
 
-        footer .bottom img{
+        footer .bottom img {
             margin-bottom: 0.5vh;
             width: 5vw;
         }
@@ -448,24 +449,49 @@
 
             <div class="timeContainer number">
                 <div class="time <%=user.progress[0].color || 'bgGrey'%>">
-                    <%if(user.progress[0].unLocked){%><a href="/chapter?day=1"><span>13</span></a><% }else{%>
-                        <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[0].unLocked){%>
+                        <a href="/chapter?day=1">
+                            <span>13</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[1].color || 'bgGrey'%>">
-                        <%if(user.progress[1].unLocked) {%><a href="/chapter?day=2"><span>14</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[1].unLocked) {%>
+                        <a href="/chapter?day=2">
+                            <span>14</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[2].color || 'bgGrey'%>">
-                        <%if(user.progress[2].unLocked) {%><a href="/chapter?day=3"><span>15</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[2].unLocked) {%>
+                        <a href="/chapter?day=3">
+                            <span>15</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[3].color || 'bgGrey'%>">
-                        <%if(user.progress[3].unLocked) {%><a href="/chapter?day=4"><span>16</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[3].unLocked) {%>
+                        <a href="/chapter?day=4">
+                            <span>16</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[4].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=5"><span>17</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=5">
+                            <span>17</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time bgGrey">
                     <span>18</span>
@@ -477,24 +503,49 @@
 
             <div class="timeContainer number">
                 <div class="time <%=user.progress[5].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=6"><span>20</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=6">
+                            <span>20</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[6].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=7"><span>21</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=7">
+                            <span>21</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[7].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=8"><span>22</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=8">
+                            <span>22</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[8].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=9"><span>23</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=9">
+                            <span>23</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[9].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>24</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=10">
+                            <span>24</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time bgGrey">
                     <span>25</span>
@@ -506,24 +557,49 @@
 
             <div class="timeContainer number">
                 <div class="time <%=user.progress[10].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>27</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=10">
+                            <span>27</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[11].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>28</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=10">
+                            <span>28</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[12].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>29</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=10">
+                            <span>29</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[13].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>30</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=10">
+                            <span>30</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time <%=user.progress[14].color || 'bgGrey'%>">
-                        <%if(user.progress[4].unLocked) {%><a href="/chapter?day=10"><span>31</span></a><% }else{%>
-                            <img src="/images/dayLock.png" alt=""><%}%>
+                    <%if(user.progress[4].unLocked) {%>
+                        <a href="/chapter?day=10">
+                            <span>31</span>
+                        </a>
+                        <% }else{%>
+                            <img src="/images/dayLock.png" alt="">
+                            <%}%>
                 </div>
                 <div class="time">
                     <span></span>
@@ -542,7 +618,9 @@
                     <div class="content">
                         <div class="book blueBg">
                             <div class="status">
-                                <span class="<%=mission[0] === '未读' ? 'noread':'' %>"><%=mission[0] %></span>
+                                <span class="<%=mission[0] === '未读' ? 'noread':'' %>">
+                                    <%=mission[0] %>
+                                </span>
                             </div>
                             <div class="coverImg">
                                 <img src="<%=mission[0] === '未读' ?  '/images/planLock.png':'/images/1.png' %>" alt="" />
@@ -555,7 +633,9 @@
                     <div class="content">
                         <div class="book darkBlueBg">
                             <div class="status">
-                                <span class="<%=mission[1] === '未读' ? 'noread':'' %>"><%=mission[1] %></span>
+                                <span class="<%=mission[1] === '未读' ? 'noread':'' %>">
+                                    <%=mission[1] %>
+                                </span>
                             </div>
                             <div class="coverImg">
                                 <img src="<%=mission[1] === '未读' ?  '/images/planLock.png':'/images/2.png' %>" alt="" />
@@ -568,7 +648,9 @@
                     <div class="content">
                         <div class="book redBg">
                             <div class="status">
-                                <span class="<%=mission[2] === '未读' ? 'noread':'' %>"><%=mission[2] %></span>
+                                <span class="<%=mission[2] === '未读' ? 'noread':'' %>">
+                                    <%=mission[2] %>
+                                </span>
                             </div>
                             <div class="coverImg">
                                 <img src="<%=mission[2] === '未读' ?  '/images/planLock.png':'/images/3.png' %>" alt="" />
@@ -581,7 +663,9 @@
                     <div class="content">
                         <div class="book darkRedBg">
                             <div class="status">
-                                <span class="<%=mission[3] === '未读' ? 'noread':'' %>"><%=mission[3] %></span>
+                                <span class="<%=mission[3] === '未读' ? 'noread':'' %>">
+                                    <%=mission[3] %>
+                                </span>
                             </div>
                             <div class="coverImg">
                                 <img src="<%=mission[3] === '未读' ?  '/images/planLock.png':'/images/4.png' %>" alt="" />
@@ -595,7 +679,9 @@
                         <div class="book orangeBg">
                             <div class="status">
                                 <!-- <span class="noread">未读</span> -->
-                                <span class="<%=mission[4] === '未读' ? 'noread':'' %>"><%=mission[4] %></span>
+                                <span class="<%=mission[4] === '未读' ? 'noread':'' %>">
+                                    <%=mission[4] %>
+                                </span>
                             </div>
                             <div class="coverImg">
                                 <img src="<%=mission[4] === '未读' ?  '/images/planLock.png':'/images/5.png' %>" alt="" />
