@@ -38,15 +38,20 @@ router.get('/sign', function (req, res) {
 
 router.get('/home', function (req, res) {
     if (req.cookies && req.cookies.user) {
-        var host = req.headers.host;
-        var tep = `http://dlh.viakids.cn/getWechatUserInfo&email=${req.cookies.user}&url=home`;
-        // if (req.query.openId) {
-        //     tep += '&preLevel=' + req.query.openId;
-        // }
-        var rUrl = encodeURIComponent(tep);
-        console.log('rul', rUrl)
-        var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + aotuConfig.appid + '&redirect_uri=' + rUrl + '&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect';
-        res.redirect(url);
+        if (req.cookies.hasAvator && req.cookies.hasAvator == 1) {
+            res.render('home', {})
+        }
+        else {
+            var host = req.headers.host;
+            var tep = `http://dlh.viakids.cn/getWechatUserInfo&email=${req.cookies.user}&url=home`;
+            // if (req.query.openId) {
+            //     tep += '&preLevel=' + req.query.openId;
+            // }
+            var rUrl = encodeURIComponent(tep);
+            console.log('rul', rUrl)
+            var url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + aotuConfig.appid + '&redirect_uri=' + rUrl + '&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect';
+            res.redirect(url);
+        }
     }
     else {
         res.render('sign', {})
