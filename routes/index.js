@@ -60,7 +60,7 @@ router.get('/home', function (req, res) {
         }
     }
     else {
-        res.redirect('sign', {})
+        res.redirect('/sign', {})
     }
     // res.render('home', {})
 })
