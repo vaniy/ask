@@ -60,6 +60,14 @@
             padding-top: 30px;
         }
 
+        #root .submit {
+            position: absolute;
+            bottom: 6vh;
+            font-size: 4vw;
+            color: #222222;
+            cursor: pointer;
+        }
+
         .form {
             width: 80%;
             display: flex;
@@ -105,6 +113,9 @@
     align-items: center;
     justify-content: center;">
         <img style="width: 90%" src="/images/homeBg.png" alt="">
+        <div class="submit">
+            <span>点击进入</span>
+        </div>
         <!-- <header>
             <img src="/logo.png" alt="">
         </header>
@@ -145,28 +156,52 @@
 <script src="/javascripts/jquery-3.0.0.min.js"></script>
 <script>
     $(document).ready(function () {
-        $.ajax({
-            type: 'get',
-            url: '/getUser',
-            data: {},
-            dataType: 'json',
-            success: function (res) {
-                console.log('res', res)
-                if (res && res.status) {
-                    // alert(res.msg)
-                    if (res.data.score1) {
-                        setTimeout(() => {
-                            location.href = '/read'
-                        }, 3000);
-                    }
-                    else {
-                        setTimeout(() => {
-                            location.href = '/test'
-                        }, 3000);
-                    }
-                }
+        let directUrl = '';
+        $('.submit').click(function (e) {
+            if (directUrl !== '') {
+                location.href = directUrl
+            }
+            else {
+                getUser(false)
             }
         })
+        var getUser = function (needTime = true) {
+            $.ajax({
+                type: 'get',
+                url: '/getUser',
+                data: {},
+                dataType: 'json',
+                success: function (res) {
+                    console.log('res', res)
+                    if (res && res.status) {
+                        // alert(res.msg)
+                        if (res.data.score1) {
+                            if (needTime) {
+                                setTimeout(() => {
+                                    directUrl = '/read';
+                                    location.href = '/read';
+                                }, 3000);
+                            }
+                            else {
+                                location.href = '/read';
+                            }
+                        }
+                        else {
+                            if (needTime) {
+                                setTimeout(() => {
+                                    directUrl = '/test';
+                                    location.href = '/test';
+                                }, 3000);
+                            }
+                            else {
+                                location.href = '/test';
+                            }
+                        }
+                    }
+                }
+            })
+        };
+        getUser();
     })
 </script>
 
