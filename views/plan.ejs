@@ -229,7 +229,7 @@
             display: flex;
             flex-direction: column;
             margin-left: 4vw;
-            width: 20vw;
+            width: 24vw;
             justify-content: space-between;
         }
 
@@ -285,6 +285,14 @@
             align-items: center;
             justify-content: center;
             padding: 2vh 0;
+            flex-direction: column;
+            color: white
+        }
+
+        section .plan .content .book .coverImg span{
+            margin-top: 2vw;
+            font-size: 3vw;
+            line-height: 2vw
         }
 
         section .plan .content .book .coverImg img {
@@ -624,6 +632,10 @@
                             </div>
                             <div class="coverImg">
                                 <img src="<%=mission[0] === '未读' ?  '/images/planLock.png':'/images/1.png' %>" alt="" />
+                                <% if(mission[0] !== '未读'){%>
+                                    <span>联系</span>
+                                    <span>Associating</span>
+                                <% }%>
                             </div>
                             <div class="during">
                                 <span>8.13 - 8.15</span>
@@ -639,6 +651,10 @@
                             </div>
                             <div class="coverImg">
                                 <img src="<%=mission[1] === '未读' ?  '/images/planLock.png':'/images/2.png' %>" alt="" />
+                                <% if(mission[1] !== '未读'){%>
+                                    <span>发问</span>
+                                    <span>Questioning</span>
+                                <% }%>
                             </div>
                             <div class="during">
                                 <span>8.16 - 8.20</span>
@@ -646,7 +662,7 @@
                         </div>
                     </div>
                     <div class="content">
-                        <div class="book redBg">
+                        <div class="book darkRedBg">
                             <div class="status">
                                 <span class="<%=mission[2] === '未读' ? 'noread':'' %>">
                                     <%=mission[2] %>
@@ -654,6 +670,10 @@
                             </div>
                             <div class="coverImg">
                                 <img src="<%=mission[2] === '未读' ?  '/images/planLock.png':'/images/3.png' %>" alt="" />
+                                <% if(mission[2] !== '未读'){%>
+                                    <span>观察</span>
+                                    <span>Observing</span>
+                                <% }%>
                             </div>
                             <div class="during">
                                 <span>8.21 - 8.23</span>
@@ -661,7 +681,7 @@
                         </div>
                     </div>
                     <div class="content">
-                        <div class="book darkRedBg">
+                        <div class="book redBg">
                             <div class="status">
                                 <span class="<%=mission[3] === '未读' ? 'noread':'' %>">
                                     <%=mission[3] %>
@@ -669,6 +689,10 @@
                             </div>
                             <div class="coverImg">
                                 <img src="<%=mission[3] === '未读' ?  '/images/planLock.png':'/images/4.png' %>" alt="" />
+                                <% if(mission[3] !== '未读'){%>
+                                    <span>交际</span>
+                                    <span>Networking</span>
+                                <% }%>
                             </div>
                             <div class="during">
                                 <span>8.24 - 8.28</span>
@@ -685,6 +709,10 @@
                             </div>
                             <div class="coverImg">
                                 <img src="<%=mission[4] === '未读' ?  '/images/planLock.png':'/images/5.png' %>" alt="" />
+                                <% if(mission[4] !== '未读'){%>
+                                    <span>实验</span>
+                                    <span>Experimenting</span>
+                                <% }%>
                             </div>
                             <div class="during">
                                 <span>8.29 - 8.31</span>

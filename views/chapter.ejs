@@ -138,6 +138,16 @@
 			line-height: 8vw;
         }
 
+        section .chapterContent .daodu{
+            width: 8vw;
+            height: 8vw;
+            background: #165299;
+            border-radius: 50px;
+            text-align: center;
+            color: white;
+            margin-top: 2vh
+        }
+
         section .empty {
             height: 20vh;
             width: 100%;
@@ -155,7 +165,8 @@
         }
 
         section .record img {
-            width: 35vw
+            width: 35vw;
+            height: 10vh;
         }
 
         footer {
@@ -170,9 +181,9 @@
             width: 100%;
         }
 
-
-
         footer .bottom {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            text-decoration: none;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -180,11 +191,14 @@
             justify-content: center;
         }
 
-        footer .bottom a {
-            -webkit-tap-highlight-color:rgba(0,0,0,0);
-            text-decoration: none;
+        footer .bottom img {
+            margin-bottom: 0.5vh;
+            width: 5vw;
+        }
+
+        footer .bottom span {
             color: #666666;
-            font-size: 4vw;
+            font-size: 3vw;
         }
     </style>
     <!-- The Fonts -->
@@ -221,6 +235,7 @@
                 </div>
                 <% }%>
                     <div class="chapterContent">
+                        <span class="daodu"><%=day %></span>
                         <h2>-
                             <%=title%>-</h2>
                         <span>
@@ -233,27 +248,20 @@
                     <div class="empty"></div>
         </section>
     </div>
-    <!-- <footer>
-        <div class="bottom">
+    <footer>
+        <a href="/read" class="bottom">
             <img src="/images/home.png" alt="">
-            <a href="/read">今日阅读</a>
-        </div>
-        <div class="bottom">
+            <span>今日阅读</span>
+        </a>
+        <a href="/plan" class="bottom">
             <img src="/images/planNormal.png" alt="">
-            <a href="/plan">计划</a>
-        </div>
-        <div class="bottom">
+            <span>计划</span>
+        </a>
+        <a href="/myAccount" class="bottom">
             <img src="/images/accountNormal.png" alt="">
-            <a href="/account">我的</a>
-        </div>
-    </footer> -->
-    <!--<footer>
-		<div class="wrapper">
-			<span class="copyright">
-				COPYRIGHT © 2018 Newegg Inc
-			</span>
-		</div>
-	</footer>-->
+            <span>我的</span>
+        </a>
+    </footer>
 </body>
 
 <script src="/javascripts/jquery-3.0.0.min.js"></script>
