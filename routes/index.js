@@ -12,6 +12,7 @@ var wxConfig = require('../config/wxConfig');
 var cryptoMO = require('crypto'); // MD5算法
 var parseString = require('xml2js').parseString; // xml转js对象
 var key = wxConfig.Mch_key;
+var xlsx = require('node-xlsx').default;
 
 var XMLJS = require('xml2js');
 //解析，将xml解析为json
@@ -26,6 +27,26 @@ var cache = {
     time: 0
 }
 
+router.get('/load', function(req, res){
+    if(req.query.terribleterribledamaged){
+        console.log(__dirname)
+        const workSheetsFromFile = xlsx.parse(`${__dirname}/../public/user.xlsx`);
+        let users = [];
+        if(workSheetsFromFile && workSheetsFromFile[1] && workSheetsFromFile[1].data){
+            let user = workSheetsFromFile[1].data;
+            users = user.map((child)=>{
+                if(child && child[0] && child[0] !== 'Email Address'){
+                    return child[0];
+                }
+            }).filter((cld)=>{return cld != null})
+        }
+        dbHandler.createUsersFromXlsx(req, res, users)
+        // res.send({status: 'success', users:users})
+    }
+    else{
+        res.send('failed')
+    }
+})
 // const language = require('../lib/resource')
 router.get('/sign', function (req, res) {
     if (req.cookies && req.cookies.user) {
@@ -43,6 +64,8 @@ router.get('/clearCookie', function(req, res){
 })
 
 router.get('/home', function (req, res) {
+    // res.render('home', {})
+    // return;
     if (req.cookies && req.cookies.user) {
         if (req.cookies.hasAvator && req.cookies.hasAvator == 1) {
             res.render('home', {})
