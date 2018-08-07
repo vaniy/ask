@@ -206,7 +206,7 @@
     <div id="root">
         <section>
             <div class="myProcess">
-                <h1>团队竞读排行<span>(团队实际阅读总天数/团队应读总天数)</span>:</h1>
+                <h1>团队竞读排行<br/><span>(团队实际阅读总天数/团队应读总天数)</span>:</h1>
                 <div class="processes">
                     <%readGroup.forEach(function(child){ %>
                     <div class="process">
@@ -216,10 +216,10 @@
                                 <div class="left colorBlue" style="width: <%=child.readPercentage %>%"></div>
                                 <div class="right colorDefault" style="width: <%=100-child.readPercentage %>%"></div>
                             </div>
-                            <!-- <div class="day">
-                                <span>阅读进度平均值</span>
+                            <div class="day">
+                                <span>阅读天数</span>
                                 <span>总共：15天</span>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="percent">
                             <span class="contentText"><%=child.readPercentage %>%</span>
