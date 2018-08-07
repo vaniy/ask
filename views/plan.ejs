@@ -458,7 +458,7 @@
             <div class="timeContainer number">
                 <div class="time <%=user.progress[0].color || 'bgGrey'%>">
                     <%if(user.progress[0].unLocked){%>
-                        <a href="/chapter?day=1">
+                        <a href="/chapter?readFlag=<%=user.progress[0].readFlag %>&day=1">
                             <span>13</span>
                         </a>
                         <% }else{%>
@@ -467,7 +467,7 @@
                 </div>
                 <div class="time <%=user.progress[1].color || 'bgGrey'%>">
                     <%if(user.progress[1].unLocked) {%>
-                        <a href="/chapter?day=2">
+                        <a href="/chapter?readFlag=<%=user.progress[1].readFlag %>&day=2">
                             <span>14</span>
                         </a>
                         <% }else{%>
@@ -476,7 +476,7 @@
                 </div>
                 <div class="time <%=user.progress[2].color || 'bgGrey'%>">
                     <%if(user.progress[2].unLocked) {%>
-                        <a href="/chapter?day=3">
+                        <a href="/chapter?readFlag=<%=user.progress[2].readFlag %>&day=3">
                             <span>15</span>
                         </a>
                         <% }else{%>
@@ -485,7 +485,7 @@
                 </div>
                 <div class="time <%=user.progress[3].color || 'bgGrey'%>">
                     <%if(user.progress[3].unLocked) {%>
-                        <a href="/chapter?day=4">
+                        <a href="/chapter?readFlag=<%=user.progress[3].readFlag %>&day=4">
                             <span>16</span>
                         </a>
                         <% }else{%>
@@ -494,7 +494,7 @@
                 </div>
                 <div class="time <%=user.progress[4].color || 'bgGrey'%>">
                     <%if(user.progress[4].unLocked) {%>
-                        <a href="/chapter?day=5">
+                        <a href="/chapter?readFlag=<%=user.progress[4].readFlag %>&day=5">
                             <span>17</span>
                         </a>
                         <% }else{%>
@@ -512,7 +512,7 @@
             <div class="timeContainer number">
                 <div class="time <%=user.progress[5].color || 'bgGrey'%>">
                     <%if(user.progress[5].unLocked) {%>
-                        <a href="/chapter?day=6">
+                        <a href="/chapter?readFlag=<%=user.progress[5].readFlag %>&day=6">
                             <span>20</span>
                         </a>
                         <% }else{%>
@@ -521,7 +521,7 @@
                 </div>
                 <div class="time <%=user.progress[6].color || 'bgGrey'%>">
                     <%if(user.progress[6].unLocked) {%>
-                        <a href="/chapter?day=7">
+                        <a href="/chapter?readFlag=<%=user.progress[6].readFlag %>&day=7">
                             <span>21</span>
                         </a>
                         <% }else{%>
@@ -530,7 +530,7 @@
                 </div>
                 <div class="time <%=user.progress[7].color || 'bgGrey'%>">
                     <%if(user.progress[7].unLocked) {%>
-                        <a href="/chapter?day=8">
+                        <a href="/chapter?readFlag=<%=user.progress[7].readFlag %>&day=8">
                             <span>22</span>
                         </a>
                         <% }else{%>
@@ -539,7 +539,7 @@
                 </div>
                 <div class="time <%=user.progress[8].color || 'bgGrey'%>">
                     <%if(user.progress[8].unLocked) {%>
-                        <a href="/chapter?day=9">
+                        <a href="/chapter?readFlag=<%=user.progress[8].readFlag %>&day=9">
                             <span>23</span>
                         </a>
                         <% }else{%>
@@ -548,7 +548,7 @@
                 </div>
                 <div class="time <%=user.progress[9].color || 'bgGrey'%>">
                     <%if(user.progress[9].unLocked) {%>
-                        <a href="/chapter?day=10">
+                        <a href="/chapter?readFlag=<%=user.progress[9].readFlag %>&day=10">
                             <span>24</span>
                         </a>
                         <% }else{%>
@@ -566,7 +566,7 @@
             <div class="timeContainer number">
                 <div class="time <%=user.progress[10].color || 'bgGrey'%>">
                     <%if(user.progress[10].unLocked) {%>
-                        <a href="/chapter?day=11">
+                        <a href="/chapter?readFlag=<%=user.progress[10].readFlag %>&day=11">
                             <span>27</span>
                         </a>
                         <% }else{%>
@@ -575,7 +575,7 @@
                 </div>
                 <div class="time <%=user.progress[11].color || 'bgGrey'%>">
                     <%if(user.progress[11].unLocked) {%>
-                        <a href="/chapter?day=12">
+                        <a href="/chapter?readFlag=<%=user.progress[11].readFlag %>&day=12">
                             <span>28</span>
                         </a>
                         <% }else{%>
@@ -584,7 +584,7 @@
                 </div>
                 <div class="time <%=user.progress[12].color || 'bgGrey'%>">
                     <%if(user.progress[12].unLocked) {%>
-                        <a href="/chapter?day=13">
+                        <a href="/chapter?readFlag=<%=user.progress[12].readFlag %>&day=13">
                             <span>29</span>
                         </a>
                         <% }else{%>
@@ -593,7 +593,7 @@
                 </div>
                 <div class="time <%=user.progress[13].color || 'bgGrey'%>">
                     <%if(user.progress[13].unLocked) {%>
-                        <a href="/chapter?day=14">
+                        <a href="/chapter?readFlag=<%=user.progress[13].readFlag %>&day=14">
                             <span>30</span>
                         </a>
                         <% }else{%>
@@ -602,7 +602,7 @@
                 </div>
                 <div class="time <%=user.progress[14].color || 'bgGrey'%>">
                     <%if(user.progress[14].unLocked) {%>
-                        <a href="/chapter?day=15">
+                        <a href="/chapter?readFlag=<%=user.progress[14].readFlag %>&day=15">
                             <span>31</span>
                         </a>
                         <% }else{%>
