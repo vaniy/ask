@@ -149,7 +149,13 @@
             border-radius: 50px;
             text-align: center;
             color: white;
-            margin-top: 2vh
+            margin-top: 2vh;
+            z-index: 999
+        }
+
+        section .chapterContent .readBg{
+            position: absolute;
+            
         }
 
         section .empty {
@@ -240,6 +246,7 @@
                 <% }%>
                     <div class="chapterContent">
                         <span class="daodu"><%=day %></span>
+                        <img class="readBg" src="/images/readBg.png" alt="">
                         <h2>
                             <!-- -<%=title%>- -->
                         </h2>
