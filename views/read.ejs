@@ -160,7 +160,14 @@
             display: flex;
             flex-direction: column;
             text-align: center;
-            font-size: 10vw;
+            font-size: 8vw;
+			font-weight: bold;
+        }
+		section .challenege .hongse{
+			color:#930;
+        }
+		section .challenege .lanse{
+			color:#069;
         }
 
         section .empty {
@@ -267,8 +274,8 @@
 
             <%if(!course || course.length == 0){%>
                 <div class="challenege">
-                    <span>8月13日起，</span>
-                    <span>请你来挑战!</span>
+                    <span class="hongse">8月13日</span>
+                    <span class="lanse">请你来挑战!</span>
                 </div>
                 <%}%>
                     <!-- <div class="everyDay">
