@@ -90,7 +90,7 @@ router.get('/home', function (req, res) {
 
 router.get('/chapter', function (req, res) {
     // console.log('course', course)
-    if (req.cookies && req.cookies.user) {
+    // if (req.cookies && req.cookies.user) {
         if (req.query.day) {
             let hasMusic = req.query.day == 1 || req.query.day == 4 || req.query.day == 7 || req.query.day == 10 || req.query.day == 13;
             res.render('chapter', { day:req.query.day,readFlag: req.query.readFlag, content: course['day' + req.query.day], title: `DAY ${req.query.day}`, music: hasMusic ? `/audio/${req.query.day}.mp3` : null })
@@ -98,10 +98,10 @@ router.get('/chapter', function (req, res) {
         else {
             res.render('home')
         }
-    }
-    else {
-        res.redirect('sign')
-    }
+    // }
+    // else {
+    //     res.redirect('sign')
+    // }
 })
 
 router.get('/myAccount', function (req, res) {
