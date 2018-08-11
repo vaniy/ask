@@ -238,7 +238,7 @@
                           导读
                         </span>
                     </div>
-                    <audio src="/audio/0.mp3" controls="controls">
+                    <audio id='audio1' src="/audio/0.mp3" controls="controls">
                     </audio>
                 </div>
 								<div class="chapterContent"><span>
@@ -269,7 +269,7 @@ IQ一般是天赋，但创造力不是，只有25%-40%是由遗传因素决定�
                         </span>
                         <!-- <span class="name">CEO Jason Peng</span> -->
                     </div>
-                    <audio src="<%=music %>" controls="controls">
+                    <audio id="audio2" src="<%=music %>" controls="controls">
                     </audio>
                 </div>
                 <% }%>
@@ -304,9 +304,19 @@ IQ一般是天赋，但创造力不是，只有25%-40%是由遗传因素决定�
         </a>
     </footer>
 </body>
-
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="/javascripts/jquery-3.0.0.min.js"></script>
 <script>
+    wx.ready(function () {
+        $('#audio1').click(function(e){
+            var media = document.getElementById("audio1");
+            media.play();
+        })
+        $('#audio2').click(function(e){
+            var media = document.getElementById("audio2");
+            media.play();
+        })
+    });
     $(document).ready(function () {
         $('.record').click(function (e) {
             let day = $('.flaggg').html();
