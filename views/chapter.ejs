@@ -267,7 +267,7 @@ IQ一般是天赋，但创造力不是，只有25%-40%是由遗传因素决定�
 <br/><br/>而我们将依次从理论、实例、方法带您完成这五大技能的学习，探索揭秘创新者的基因。让我们一起开启创新之旅！
 <br/><br/></span></div>
             <%if(music){%>
-                <div class="audio">
+                <div id='sp' class="audio">
                     <div class="person">
                         <span class="intro">
                             <!-- <%=title%> -->
@@ -313,7 +313,7 @@ IQ一般是天赋，但创造力不是，只有25%-40%是由遗传因素决定�
 <script src="/javascripts/jquery-3.0.0.min.js"></script>
 <script>
     wx.ready(function () {
-        $('#audio1').click(function(e){
+        $('#sp').click(function(e){
             alert('test')
             var media = document.getElementById("audio1");
             media.load();
