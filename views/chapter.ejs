@@ -325,27 +325,24 @@ IQ一般是天赋，但创造力不是，只有25%-40%是由遗传因素决定�
     //     })
     // });
     $(document).ready(function () {
-            var media = document.getElementById("audio1");
-        if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
-            media.play();
-        } else {
-            //監聽客户端抛出事件"WeixinJSBridgeReady"
-            if (document.addEventListener) {
-                document.addEventListener("WeixinJSBridgeReady", function(){
-                    media.play();
-                    alert('test')
-                }, false);
-            } else if (document.attachEvent) {
-                document.attachEvent("WeixinJSBridgeReady", function(){
-                    media.play();
-                    alert('test')
-                });
-                document.attachEvent("onWeixinJSBridgeReady", function(){
-                    media.play();
-                    alert('test')
-                });
-            }
-        }
+        //     var media = document.getElementById("audio1");
+        // if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+        //     media.play();
+        // } else {
+        //     //監聽客户端抛出事件"WeixinJSBridgeReady"
+        //     if (document.addEventListener) {
+        //         document.addEventListener("WeixinJSBridgeReady", function(){
+        //             media.play();
+        //         }, false);
+        //     } else if (document.attachEvent) {
+        //         document.attachEvent("WeixinJSBridgeReady", function(){
+        //             media.play();
+        //         });
+        //         document.attachEvent("onWeixinJSBridgeReady", function(){
+        //             media.play();
+        //         });
+        //     }
+        // }
         $('.record').click(function (e) {
             let day = $('.flaggg').html();
             let readFlag = $('#readFlag')[0].className;
