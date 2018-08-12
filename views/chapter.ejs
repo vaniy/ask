@@ -312,19 +312,40 @@ IQ一般是天赋，但创造力不是，只有25%-40%是由遗传因素决定�
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="/javascripts/jquery-3.0.0.min.js"></script>
 <script>
-    wx.ready(function () {
-        $('#sp').click(function(e){
-            alert('test')
-            var media = document.getElementById("audio1");
-            media.load();
-            media.play();
-        })
-        $('#audio2').click(function(e){
-            var media = document.getElementById("audio2");
-            media.play();
-        })
-    });
+    // wx.ready(function () {
+    //     $('#sp').click(function(e){
+    //         alert('test')
+    //         var media = document.getElementById("audio1");
+    //         media.load();
+    //         media.play();
+    //     })
+    //     $('#audio2').click(function(e){
+    //         var media = document.getElementById("audio2");
+    //         media.play();
+    //     })
+    // });
     $(document).ready(function () {
+            var media = document.getElementById("audio1");
+        if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+            media.play();
+        } else {
+            //監聽客户端抛出事件"WeixinJSBridgeReady"
+            if (document.addEventListener) {
+                document.addEventListener("WeixinJSBridgeReady", function(){
+                    media.play();
+                    alert('test')
+                }, false);
+            } else if (document.attachEvent) {
+                document.attachEvent("WeixinJSBridgeReady", function(){
+                    media.play();
+                    alert('test')
+                });
+                document.attachEvent("onWeixinJSBridgeReady", function(){
+                    media.play();
+                    alert('test')
+                });
+            }
+        }
         $('.record').click(function (e) {
             let day = $('.flaggg').html();
             let readFlag = $('#readFlag')[0].className;
