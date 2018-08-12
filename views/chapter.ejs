@@ -243,8 +243,8 @@
                           导读
                         </span>
                     </div>
-                    <video id='audio1' src="/audio/0.mp3" controls="controls">
-                    </video>
+                    <audio id='audio1' src="/audio/0.mp3" controls="controls">
+                    </audio>
                 </div>
 								<div class="chapterContent"><span>
 								<br/>
@@ -312,16 +312,18 @@ IQ一般是天赋，但创造力不是，只有25%-40%是由遗传因素决定�
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="/javascripts/jquery-3.0.0.min.js"></script>
 <script>
-    // wx.ready(function () {
-    //     $('#audio1').click(function(e){
-    //         var media = document.getElementById("audio1");
-    //         media.play();
-    //     })
-    //     $('#audio2').click(function(e){
-    //         var media = document.getElementById("audio2");
-    //         media.play();
-    //     })
-    // });
+    wx.ready(function () {
+        $('#audio1').click(function(e){
+            alert('test')
+            var media = document.getElementById("audio1");
+            media.load();
+            media.play();
+        })
+        $('#audio2').click(function(e){
+            var media = document.getElementById("audio2");
+            media.play();
+        })
+    });
     $(document).ready(function () {
         $('.record').click(function (e) {
             let day = $('.flaggg').html();
