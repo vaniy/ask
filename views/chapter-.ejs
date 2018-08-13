@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="keywords" content=" react training">
+    <meta name="description" content=" react training ">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                document
+                    .write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+            } else {
+                document
+                    .write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document
+                .write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+    <style type='text/css'>
+        body {
+            /* background: url('/bg.png') no-repeat center bottom fixed;
+            background-size: 100%; */
+            background-color: #fdfdfd
+        }
+
+        nav {
+            /* width: 100%; */
+            display: flex;
+            flex-direction: row;
+            border-bottom: #ececec solid 1.5vh;
+            padding: 2vh 4vh;
+            justify-content: space-between;
+        }
+
+        nav .flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        nav .left {
+            color: #666666;
+            font-size: 5vw;
+        }
+
+        nav .left img {
+            width: 5vw;
+            height: 5vw;
+        }
+
+        nav .left span {
+            padding-left: 20px;
+        }
+
+        nav .right a {
+            padding-right: 20px;
+            text-decoration: none;
+            color: #8e8e8e;
+            font-size: 4vw;
+        }
+
+        section {
+            display: flex;
+            /* align-items: center; */
+            flex-direction: column;
+        }
+
+        section audio{
+            width: 80vw;
+        }
+
+        section video{
+            width: 80vw;
+            height: 6vh;
+        }
+
+        section h1 {
+            margin-left: 6vw;
+            font-size: 5vw;
+            color: #505050;
+            font-weight: normal;
+        }
+
+        section .audio {
+            display: flex;
+            flex-direction: column;
+            width: 78%;
+            margin: 0 auto;
+            border: #b2b2b2 solid 1px;
+            padding: 3vh 5vw;
+            background: #f7f7f7
+        }
+
+        section .audio .person {
+            display: flex;
+            flex-direction: column;
+        }
+
+        section .audio .person .intro {
+            font-size: 4vw;
+            color: #666666;
+        }
+
+        section .audio .person .name {
+            font-size: 2.5vw;
+            color: #666666;
+            margin-top: 0.5vh;
+        }
+
+        section .chapterContent {
+            flex-direction: column;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            margin: 0 8vw;
+			text-align:justify; 
+        }
+
+        section .chapterContent h2 {
+            font-weight: normal;
+            font-size: 4vw;
+            color: #9b9b9b;
+            width: 20vw;
+        }
+
+        section .chapterContent span {
+            font-size: 4vw;
+			line-height: 8vw;
+        }
+
+        section .chapterContent .daodu{
+            width: 8vw;
+            height: 8vw;
+            background: #165299;
+            border-radius: 50px;
+            text-align: center;
+            color: white;
+            margin-top: 2vh;
+            z-index: 999
+        }
+
+        section .chapterContent .readBg{
+            position: absolute;
+            
+        }
+
+        section .empty {
+            height: 20vh;
+            width: 100%;
+        }
+
+        section .bold {
+            font-weight: bold;
+        }
+
+        section .record {
+            display: flex;
+            margin-top: 5vh;
+            justify-content: center;
+            width: 100%
+        }
+
+        section .record img {
+            width: 35vw;
+            height: 10vh;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 1.5vh 0;
+            /* justify-content: space-between; */
+            background-color: #e5e5e5;
+            width: 100%;
+        }
+
+        footer .bottom {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            text-decoration: none;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer .bottom img {
+            margin-bottom: 0.5vh;
+            width: 5vw;
+        }
+
+        footer .bottom span {
+            color: #666666;
+            font-size: 3vw;
+        }
+    </style>
+    <!-- The Fonts -->
+    <!--<link href="http://fonts.useso.com/css?family=Oswald|Droid+Sans:400,700" rel="stylesheet">-->
+    <!-- The Main CSS File -->
+    <!--<link rel="stylesheet" href="/static/CSS/style.css">
+    <link rel="stylesheet" href="/static/CSS/button.css">-->
+</head>
+
+<body style="margin:0; flex:1">
+    <nav>
+        <div class="flex left">
+            <img src="/images/daohang.png" alt="">
+            <span style="font-size: 4vw;" id='readFlag' class="<%=readFlag %>">丹纳赫《创新者的基因》</span>
+        </div>
+        <div class="flex right">
+        </div>
+    </nav>
+    <div id="root">
+        <section>
+            <h1 class="flaggg">
+                <%=title%>
+            </h1>
+			 <div class="audio">
+                    <div class="person">
+                        <span class="intro">
+                          导读
+                        </span>
+                    </div>
+                    <audio id='audio1' src="/audio/0.mp3" controls="controls">
+                    </audio>
+                </div>
+								<div class="chapterContent"><span>
+								<br/>
+<strong>导读：</strong>丹纳赫的小伙伴们大家好！欢迎来到丹纳赫日新月"益"系列活动之"阅创新动力"读书活动。<br/><br/>
+丹纳赫是全球科学和技术的创新者，我们致力于帮助我们的客户在全球各地应对复杂的挑战和改善生活品质。在丹纳赫，创新不只是口号！<br/><br/>
+对企业而言，创新是我们重要的战略考虑之一。创新型企业的产品和服务能够提供与众不同的特性、定价、便利性或可定制性。创新的想法能够革新产业、创造财富、增强企业的竞争优势。<br/><br/>
+对个人而言，创新也不仅仅是研发部、管理层的事情。每个员工在工作中都有可能面临创新困境或难以把握的机遇。也许是开发不出新的产品、也许难以为旧的业务开发新的商业模式、也许是无法针对市场的变化提供新的服务。<br/><br/>
+接下来的十五天中，我们要学习的这本书叫做《创新者的基因》。作者有三位，均为世界顶级商学院知名教授。书中颠覆式创新的理论是作者多年的理论和实践基础上的成果，被应用到了教育、医疗等很多领域加以验证。<br/><br/>
+创新由天命？<br/><br/>
+很多人认为，创新思维能力是与生俱来的，是基因决定了我们的创新能力。创新者天生右脑发达，是上帝赋予了他们创造性思维的能力，他们不需要花费太大的努力就能够研发新的产品和服务。
+<br/><br/>事实上并非如此。<br/><br/>
+IQ一般是天赋，但创造力不是，只有25%-40%是由遗传因素决定的，其余更多的创造力都可以通过学习获得。至少在商业领域，几乎任何人都有一定的创新和创造性思维的能力。创造力并不完全源自天赋异禀，也不仅仅是一个认知技能。创造性的想法是源自行为技能的，而这些技能你也能够通过有效的锻炼获取。<br/><br/>
+在本书中，作者花了八年的时间，访谈和调查了包括亚马逊创始人杰夫 · 贝佐斯，易趣公司创始人皮埃尔 · 奥米迪亚，苹果公司史蒂夫 · 乔布斯、维珍公司理查德 · 布兰森和星巴克创始人霍华德 · 舒尔茨在内的75个国家的500多名企业家和5000多名创新主管。<br/><br/>
+学者们通过科学系统的追踪实验以及广泛的调查研究，得出一个结论：<br/>
+<span class='bold'>人们可以通过全面发动自己的身体器官，用眼看、用口问、用脑想、用心学、动手干，强化自己的创新基因。人形成创新的能力不仅是大脑的功能，同时也是行为的功能，对我们所有人来说，只要能改变自身的行为，我们就能提升我们的创新影响力。</span><br/><br/>
+创新者总是有"非同凡想"的奇思妙想，他们都能把一些看似无关的想法联系起来，从而产生原创想法。而想要做到非同凡想，创新者们就必须有"非同凡人之所为"。他们都善于发问，总是在持续不断地提出挑战现状的问题。此外，有人勤于观察世界，其深度常人难及。有人交友甚广，人际关系网撒遍全球。有人重视实验，视其为创新活动的核心。发问、观察、交际、实验，这些行动一旦开始持续，就会激发联系性思维，继而产生新业务、新产品、新服务和新程序。<br/><br/>
+那么，如何有效的获取创新技能，如何培养创新者的基因呢？<br/><br/>
+我们将在接下来的15天中带您了解五大基本发现技能，正是这五个技能，组成了"创新者的基因"，即——
+<font style="color:#165299; font-weight:bold">"联系"、"发问"、"观察"、"交际"、"实验"</font>。
+<br/><br/>而我们将依次从理论、实例、方法带您完成这五大技能的学习，探索揭秘创新者的基因。让我们一起开启创新之旅！
+<br/><br/></span></div>
+            <%if(music){%>
+                <div id='sp' class="audio">
+                    <div class="person">
+                        <span class="intro">
+                            <!-- <%=title%> -->
+                        </span>
+                        <!-- <span class="name">CEO Jason Peng</span> -->
+                    </div>
+                    <audio id="audio2" src="<%=music %>" controls="controls">
+                    </audio>
+                </div>
+                <% }%>
+                    <div class="chapterContent">
+                        <span class="daodu"><%=day %></span>
+                        <img class="readBg" src="/images/readBg.png" alt="">
+                        <h2>
+                            <!-- -<%=title%>- -->
+                        </h2>
+                        <span>
+                            <%-content%>
+                        </span>
+                    </div>
+                    <div class="record">
+                        <img src="/images/record.png" alt="" />
+                    </div>
+                    <div class="empty"></div>
+        </section>
+    </div>
+    <footer>
+        <a href="/read" class="bottom">
+            <img src="/images/home.png" alt="">
+            <span>今日阅读</span>
+        </a>
+        <a href="/plan" class="bottom">
+            <img src="/images/planNormal.png" alt="">
+            <span>计划</span>
+        </a>
+        <a href="/myAccount" class="bottom">
+            <img src="/images/accountNormal.png" alt="">
+            <span>我的</span>
+        </a>
+    </footer>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="/javascripts/jquery-3.0.0.min.js"></script>
+<script>
+    // wx.ready(function () {
+    //     $('#sp').click(function(e){
+    //         alert('test')
+    //         var media = document.getElementById("audio1");
+    //         media.load();
+    //         media.play();
+    //     })
+    //     $('#audio2').click(function(e){
+    //         var media = document.getElementById("audio2");
+    //         media.play();
+    //     })
+    // });
+    $(document).ready(function () {
+        //     var media = document.getElementById("audio1");
+        // if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+        //     media.play();
+        // } else {
+        //     //監聽客户端抛出事件"WeixinJSBridgeReady"
+        //     if (document.addEventListener) {
+        //         document.addEventListener("WeixinJSBridgeReady", function(){
+        //             media.play();
+        //         }, false);
+        //     } else if (document.attachEvent) {
+        //         document.attachEvent("WeixinJSBridgeReady", function(){
+        //             media.play();
+        //         });
+        //         document.attachEvent("onWeixinJSBridgeReady", function(){
+        //             media.play();
+        //         });
+        //     }
+        // }
+        $('.record').click(function (e) {
+            let day = $('.flaggg').html();
+            let readFlag = $('#readFlag')[0].className;
+            // debugger
+            $.ajax({
+                type: 'get',
+                url: '/api/readCourse',
+                data: { day: day.replace('DAY', '').trim(), readFlag },
+                dataType: 'json',
+                success: function (res) {
+                    console.log('res', res)
+                    if (res && res.status) {
+                        if (res.status === 'redirect') {
+                            location.href = res.redirectUrl
+                        }
+                        else if (res.status === 'success') {
+                            alert('签到成功');
+                            setTimeout(() => {
+                                location.href = '/read'
+                            }, 2000);
+                        }
+                    }
+                }
+            })
+        })
+    })
+</script>
+
+</html>
