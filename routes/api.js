@@ -85,6 +85,10 @@ router.get('/createScore', function (req, res) {
     }
 })
 
+router.get('/allUser', function (req, res) {
+    dbHandler.findAllUser(req, res)
+})
+
 router.get('/getScore', function (req, res) {
     if (!req.cookies || !req.cookies.user) {
         res.send({ status: 'redirect', redirectUrl: '/sign', msg: 'redirect' })
