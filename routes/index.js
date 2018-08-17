@@ -13,6 +13,7 @@ var cryptoMO = require('crypto'); // MD5算法
 var parseString = require('xml2js').parseString; // xml转js对象
 var key = wxConfig.Mch_key;
 var xlsx = require('node-xlsx').default;
+var fs = require('fs');
 
 var XMLJS = require('xml2js');
 //解析，将xml解析为json
@@ -27,23 +28,27 @@ var cache = {
     time: 0
 }
 
-router.get('/load', function(req, res){
-    if(req.query.terribleterribledamaged){
+router.get('/scoreForXlsx', function (req, res) {
+    dbHandler.createScoreXlsx(req, res);
+})
+
+router.get('/load', function (req, res) {
+    if (req.query.terribleterribledamaged) {
         console.log(__dirname)
         const workSheetsFromFile = xlsx.parse(`${__dirname}/../public/user.xlsx`);
         let users = [];
-        if(workSheetsFromFile && workSheetsFromFile[1] && workSheetsFromFile[1].data){
+        if (workSheetsFromFile && workSheetsFromFile[1] && workSheetsFromFile[1].data) {
             let user = workSheetsFromFile[1].data;
-            users = user.map((child)=>{
-                if(child && child[0] && child[0] !== 'Email Address'){
+            users = user.map((child) => {
+                if (child && child[0] && child[0] !== 'Email Address') {
                     return child[0];
                 }
-            }).filter((cld)=>{return cld != null})
+            }).filter((cld) => { return cld != null })
         }
         dbHandler.createUsersFromXlsx(req, res, users)
         // res.send({status: 'success', users:users})
     }
-    else{
+    else {
         res.send('failed')
     }
 })
@@ -57,9 +62,9 @@ router.get('/sign', function (req, res) {
     }
 })
 
-router.get('/clearCookie', function(req, res){
-    res.cookie('hasAvator', null, { maxAge:1000 })
-    res.cookie('user', null, { maxAge:1000 })
+router.get('/clearCookie', function (req, res) {
+    res.cookie('hasAvator', null, { maxAge: 1000 })
+    res.cookie('user', null, { maxAge: 1000 })
     res.send('ok')
 })
 
@@ -91,13 +96,13 @@ router.get('/home', function (req, res) {
 router.get('/chapter', function (req, res) {
     // console.log('course', course)
     // if (req.cookies && req.cookies.user) {
-        if (req.query.day) {
-            let hasMusic = req.query.day == 1 || req.query.day == 4 || req.query.day == 7 || req.query.day == 10 || req.query.day == 13;
-            res.render('chapter', { day:req.query.day,readFlag: req.query.readFlag, content: course['day' + req.query.day], title: `DAY ${req.query.day}`, music: hasMusic ? `/audio/${req.query.day}.mp3` : null })
-        }
-        else {
-            res.render('home')
-        }
+    if (req.query.day) {
+        let hasMusic = req.query.day == 1 || req.query.day == 4 || req.query.day == 7 || req.query.day == 10 || req.query.day == 13;
+        res.render('chapter', { day: req.query.day, readFlag: req.query.readFlag, content: course['day' + req.query.day], title: `DAY ${req.query.day}`, music: hasMusic ? `/audio/${req.query.day}.mp3` : null })
+    }
+    else {
+        res.render('home')
+    }
     // }
     // else {
     //     res.redirect('sign')
