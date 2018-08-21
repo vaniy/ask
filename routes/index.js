@@ -32,6 +32,29 @@ router.get('/scoreForXlsx', function (req, res) {
     dbHandler.createScoreXlsx(req, res);
 })
 
+router.get('/modify', function (req, res) {
+    if (req.query.terribleterribledamaged) {
+        console.log(__dirname)
+        const workSheetsFromFile = xlsx.parse(`${__dirname}/../public/team.xlsx`);
+        let users = [];
+        if (workSheetsFromFile && workSheetsFromFile[0] && workSheetsFromFile[0].data) {
+            let user = workSheetsFromFile[0].data;
+            users = user.map((child) => {
+                if (child && child[0] && child[0] !== '邮箱') {
+                    return {
+                        email: child[0].trim(),
+                        team: child[3].trim()
+                    };
+                }
+            }).filter((cld) => { return cld != null })
+        }
+        dbHandler.updateUserEmail(req, res, users)
+        // res.send({status: 'success', users:users})
+    }
+    else {
+        res.send('failed')
+    }
+})
 router.get('/load', function (req, res) {
     if (req.query.terribleterribledamaged) {
         console.log(__dirname)
